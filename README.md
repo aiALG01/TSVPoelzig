@@ -89,6 +89,20 @@ Danach reicht für neue Beiträge: `/admin` öffnen, einloggen, Kategorie
 eintragen, „Veröffentlichen“ klicken. Der Beitrag erscheint automatisch auf
 der Startseite und unter „Neuigkeiten“.
 
+## Kontaktformular einrichten
+
+Das Formular auf `kontakt.html` ist für **Netlify Forms** vorbereitet
+(`data-netlify="true"`), braucht aber einen einmaligen Schritt im
+Netlify-Dashboard, damit Nachrichten auch ankommen:
+
+1. Nach dem ersten Deploy: Site settings → Forms → Form notifications →
+   „Add notification“ → „Email notification“.
+2. Als Empfänger vorerst `an.marc@web.de` (Marc Schulze, 1. Vorsitzender)
+   eintragen. Weitere Empfänger lassen sich später ergänzen.
+
+Ohne diesen Schritt werden Formular-Einsendungen zwar bei Netlify
+gespeichert, aber nicht per E-Mail zugestellt.
+
 ## Vor dem Go-Live noch offen
 
 - **Impressum und Datenschutzerklärung**: enthalten absichtlich Platzhalter
@@ -101,8 +115,9 @@ der Startseite und unter „Neuigkeiten“.
   jeweiligen `<img>`/`.photoslot`-Bereich einsetzen.
 - **Fußball-Actionfoto**: einziger verbliebener Foto-Platzhalter, wartet auf
   ein echtes Bild.
-- **Kontaktformular**: noch nicht an ein Postfach angebunden, Button ist
-  bewusst deaktiviert, bis eine Vereins-E-Mail-Adresse feststeht.
+- **Kontaktformular**: technisch an Netlify Forms angebunden, sendet aber
+  erst E-Mails, nachdem die Empfänger-Adresse im Netlify-Dashboard
+  eingetragen ist, siehe Abschnitt „Kontaktformular einrichten“ oben.
 - **Domain-Umzug von Jimdo**: die alte Seite bleibt bis zum erfolgreichen
   DNS-Umzug online, siehe Absprache im Projekt-Chat, Jimdo wird erst danach
   gekündigt.
