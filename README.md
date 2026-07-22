@@ -14,7 +14,7 @@ abteilungen/
   index.html             Übersicht
   fussball.html           inkl. Hinweis zur SG Pölzig-Heuckewalde
   volleyball.html
-  turnen.html
+  gymnastik.html
   tanzen.html
 neuigkeiten.html         Alle Neuigkeiten
 termine.html
