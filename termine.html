@@ -17,11 +17,25 @@
       <a class="brand" href="index.html"><img src="images/site/logo-tsv-poelzig.jpeg" alt="" width="34" height="34">TSV 1861 Pölzig</a>
       <nav aria-label="Hauptnavigation">
         <ul class="nav-links">
-          <li><a href="verein.html">Verein</a></li>
+          <li class="has-submenu">
+            <a href="verein.html">Verein <span class="chevron">&#9662;</span></a>
+            <ul class="submenu">
+              <li><a href="geschichte.html">Geschichte</a></li>
+              <li><a href="vorstand.html">Vorstand</a></li>
+            </ul>
+          </li>
           <li><a href="abteilungen/index.html">Abteilungen</a></li>
-          <li><a href="trainingszeiten.html">Trainingszeiten</a></li>
+          <li class="has-submenu">
+            <a href="trainingszeiten.html">Training <span class="chevron">&#9662;</span></a>
+            <ul class="submenu">
+              <li><a href="trainingszeiten.html">Trainingszeiten</a></li>
+              <li><a href="spielorte.html">Spiel- und Trainingsorte</a></li>
+            </ul>
+          </li>
+          <li><a href="termine.html">Termine</a></li>
           <li><a href="neuigkeiten.html">Neuigkeiten</a></li>
           <li><a href="sponsoren.html">Sponsoren</a></li>
+        <li class="mobile-kontakt"><a class="btn btn-primary btn-small" href="kontakt.html">Kontakt</a></li>
         </ul>
       </nav>
       <div class="nav-cta">
@@ -44,8 +58,8 @@
     </div>
 
     <section class="section container">
-      <div class="news-empty">
-        <p><strong>Noch keine Termine eingetragen.</strong><br>Termine werden als Neuigkeit mit der Kategorie „Termin“ über <code>/admin</code> veröffentlicht und erscheinen dann automatisch auch hier.</p>
+      <div class="news-grid" data-news-list data-news-category="termin" data-news-empty-text="Noch keine Termine eingetragen.">
+        <div class="news-empty"><p>Termine werden geladen …</p></div>
       </div>
       <p style="margin-top:var(--space-5)"><a class="btn btn-ghost" href="neuigkeiten.html">Alle Neuigkeiten ansehen</a></p>
     </section>
@@ -108,5 +122,6 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script src="js/neuigkeiten.js"></script>
 </body>
 </html>

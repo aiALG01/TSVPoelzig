@@ -46,26 +46,27 @@
     );
   }
 
-  function emptyStateHtml() {
-    return (
-      '<div class="news-empty">' +
-      "<p><strong>Noch keine Neuigkeiten eingetragen.</strong><br>" +
-      "Sobald der Vorstand über <code>/admin</code> die erste Meldung veröffentlicht, erscheint sie hier.</p>" +
-      "</div>"
-    );
-  }
-
-  function renderInto(container, items, limit) {
-    var sorted = items.slice().sort(function (a, b) {
+  function renderInto(container, items, limit, category, emptyText) {
+    var filtered = category ? items.filter(function (i) { return i.category === category; }) : items;
+    var sorted = filtered.slice().sort(function (a, b) {
       return new Date(b.date || 0) - new Date(a.date || 0);
     });
     if (limit) sorted = sorted.slice(0, limit);
 
     if (sorted.length === 0) {
-      container.outerHTML = emptyStateHtml();
+      container.outerHTML = emptyStateHtml(emptyText);
       return;
     }
     container.innerHTML = sorted.map(cardHtml).join("");
+  }
+
+  function emptyStateHtml(text) {
+    return (
+      '<div class="news-empty">' +
+      "<p><strong>" + (text || "Noch keine Neuigkeiten eingetragen.") + "</strong><br>" +
+      "Sobald der Vorstand über <code>/admin</code> die erste Meldung veröffentlicht, erscheint sie hier.</p>" +
+      "</div>"
+    );
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -81,7 +82,9 @@
         var items = (data && data.items) || [];
         containers.forEach(function (container) {
           var limit = parseInt(container.getAttribute("data-news-limit"), 10) || null;
-          renderInto(container, items, limit);
+          var category = container.getAttribute("data-news-category") || null;
+          var emptyText = container.getAttribute("data-news-empty-text") || null;
+          renderInto(container, items, limit, category, emptyText);
         });
       })
       .catch(function () {
