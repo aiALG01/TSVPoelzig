@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kontakt – TSV 1861 Pölzig</title>
-  <meta name="description" content="Kontakt zum TSV 1861 Pölzig.">
+  <title>Nachricht gesendet – TSV 1861 Pölzig</title>
+  <meta name="description" content="Danke für deine Nachricht an den TSV 1861 Pölzig.">
+  <meta name="robots" content="noindex">
   <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
@@ -38,41 +39,11 @@
 
   <main id="main">
     <div class="pagehead container">
-      <p class="eyebrow">Wir sind für euch da</p>
-      <h1>Kontakt</h1>
-      <p class="lede">Fragen zum Verein, zu einer Abteilung oder zur Mitgliedschaft? Meldet euch.</p>
+      <p class="eyebrow">Danke</p>
+      <h1>Nachricht gesendet.</h1>
+      <p class="lede">Wir melden uns so schnell wie möglich zurück.</p>
+      <a class="btn btn-primary" href="index.html">Zur Startseite</a>
     </div>
-
-    <section class="section container grid-2">
-      <div class="card">
-        <h2>Anschrift</h2>
-        <p>TSV 1861 Pölzig e. V.<br>Weg der Jugend 13<br>07554 Pölzig</p>
-        <p class="placeholder-note">Eine allgemeine Vereins-E-Mail-Adresse und Telefonnummer fehlen noch, bitte zuschicken. Bis dahin läuft der Kontakt über das Formular.</p>
-      </div>
-      <div>
-        <h2>Nachricht senden</h2>
-        <p class="placeholder-note">Nachrichten gehen zunächst an Marc Schulze (1. Vorsitzender). Technisch läuft das über Netlify Forms, sobald die Seite dort deployed ist, siehe README.</p>
-        <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="danke.html">
-          <input type="hidden" name="form-name" value="kontakt">
-          <p class="visually-hidden">
-            <label>Nicht ausfüllen: <input name="bot-field"></label>
-          </p>
-          <div class="form-field">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="form-field">
-            <label for="email">E-Mail</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="form-field">
-            <label for="nachricht">Nachricht</label>
-            <textarea id="nachricht" name="nachricht" rows="5" required></textarea>
-          </div>
-          <button class="btn btn-primary" type="submit">Absenden</button>
-        </form>
-      </div>
-    </section>
   </main>
 
   <footer class="sitefooter">
@@ -122,14 +93,6 @@
       </div>
     </div>
   </footer>
-
-  <div class="consent-banner" data-consent-banner>
-    <p>Diese Seite verwendet nur technisch notwendige Funktionen. Für einzelne erweiterte Inhalte, zum Beispiel eine Kartenansicht auf der Spielorte-Seite, fragen wir vorher gezielt um Zustimmung. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
-    <div class="actions">
-      <button class="btn btn-primary btn-small" data-consent-accept>Erweiterte Inhalte erlauben</button>
-      <button class="btn btn-ghost btn-small" data-consent-decline>Nur notwendige</button>
-    </div>
-  </div>
 
   <script src="js/main.js"></script>
 </body>

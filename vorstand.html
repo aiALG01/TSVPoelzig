@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kontakt – TSV 1861 Pölzig</title>
-  <meta name="description" content="Kontakt zum TSV 1861 Pölzig.">
+  <title>Vorstand – TSV 1861 Pölzig</title>
+  <meta name="description" content="Der Vorstand und die Abteilungsleitungen des TSV 1861 Pölzig.">
   <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
@@ -38,40 +38,79 @@
 
   <main id="main">
     <div class="pagehead container">
-      <p class="eyebrow">Wir sind für euch da</p>
-      <h1>Kontakt</h1>
-      <p class="lede">Fragen zum Verein, zu einer Abteilung oder zur Mitgliedschaft? Meldet euch.</p>
+      <p class="eyebrow">Ehrenamt</p>
+      <h1>Vorstand</h1>
+      <p class="lede">Der aktuelle Vorstand und die Abteilungsleitungen des TSV 1861 Pölzig.</p>
     </div>
 
-    <section class="section container grid-2">
-      <div class="card">
-        <h2>Anschrift</h2>
-        <p>TSV 1861 Pölzig e. V.<br>Weg der Jugend 13<br>07554 Pölzig</p>
-        <p class="placeholder-note">Eine allgemeine Vereins-E-Mail-Adresse und Telefonnummer fehlen noch, bitte zuschicken. Bis dahin läuft der Kontakt über das Formular.</p>
+    <section class="section container">
+    <div class="people-grid">
+      <div class="person">
+        <div class="avatar-fallback">MS</div>
+        <h3>Marc Schulze</h3>
+        <p class="role"><a href="mailto:an.marc@web.de">1. Vorsitzender</a></p>
       </div>
-      <div>
-        <h2>Nachricht senden</h2>
-        <p class="placeholder-note">Nachrichten gehen zunächst an Marc Schulze (1. Vorsitzender). Technisch läuft das über Netlify Forms, sobald die Seite dort deployed ist, siehe README.</p>
-        <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="danke.html">
-          <input type="hidden" name="form-name" value="kontakt">
-          <p class="visually-hidden">
-            <label>Nicht ausfüllen: <input name="bot-field"></label>
-          </p>
-          <div class="form-field">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="form-field">
-            <label for="email">E-Mail</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="form-field">
-            <label for="nachricht">Nachricht</label>
-            <textarea id="nachricht" name="nachricht" rows="5" required></textarea>
-          </div>
-          <button class="btn btn-primary" type="submit">Absenden</button>
-        </form>
+      <div class="person">
+        <div class="avatar-fallback">PR</div>
+        <h3>Philipp Roschka</h3>
+        <p class="role">2. Vorsitzender</p>
       </div>
+      <div class="person">
+        <div class="avatar-fallback">MS</div>
+        <h3>Matthias Salzmann</h3>
+        <p class="role">Schatzmeister</p>
+      </div>
+      <div class="person">
+        <div class="avatar-fallback">SR</div>
+        <h3>Saskia Roschka</h3>
+        <p class="role">Schriftführerin</p>
+      </div>
+      <div class="person">
+        <div class="avatar-fallback">DW</div>
+        <h3>Dirk Wunder</h3>
+        <p class="role">Geschäftsführer</p>
+      </div>
+      <div class="person">
+        <div class="avatar-fallback">TT</div>
+        <h3>Tom Teußner</h3>
+        <p class="role"><a href="mailto:tomteussner77@gmail.com">Öffentlichkeitsarbeit</a></p>
+      </div>
+      <div class="person">
+        <div class="avatar-fallback">MH</div>
+        <h3>Max Heinsch</h3>
+        <p class="role">Platzmanager</p>
+      </div>
+      <div class="person">
+        <div class="avatar-fallback">FV</div>
+        <h3>Felix Vogel</h3>
+        <p class="role">Platzmanager</p>
+      </div>
+      <div class="person">
+        <div class="avatar-fallback">JS</div>
+        <h3>Jan Steinbach</h3>
+        <p class="role">Abteilungsleiter Fußball</p>
+      </div>
+      <div class="person">
+        <img class="avatar" src="images/site/enrio-schueler.jpeg" alt="Enrico Schüler" loading="lazy">
+        <h3>Enrico Schüler</h3>
+        <p class="role">Abteilungsleiter Volleyball</p>
+      </div>
+      <div class="person">
+        <img class="avatar" src="images/site/vorstand-turnen.jpeg" alt="Yvonne Göpel" loading="lazy">
+        <h3>Yvonne Göpel</h3>
+        <p class="role">Abteilungsleiterin Gymnastik</p>
+      </div>
+      <div class="person">
+        <img class="avatar" src="images/site/frank-schaller.jpeg" alt="Frank Schaller" loading="lazy">
+        <h3>Frank Schaller</h3>
+        <p class="role">Abteilungsleiter Tanzen</p>
+      </div>
+      <div class="person">
+        <div class="avatar-fallback">MC</div>
+        <h3>Maximilian Czapek</h3>
+        <p class="role">Abteilungsleiter Jugend</p>
+      </div>
+    </div>
     </section>
   </main>
 

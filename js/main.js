@@ -93,3 +93,43 @@ var TSVConsent = (function () {
 
   return { getConsent: getConsent, setConsent: setConsent };
 })();
+
+// Dezentes Einblenden beim Scrollen. Motivation: Karten, Kacheln und
+// Zeitleisten-Einträge sollen sich anfühlen, als würden sie ins Spiel
+// kommen, statt starr dazustehen, ohne aufdringlich zu wirken. Läuft
+// einmalig pro Element, respektiert prefers-reduced-motion vollständig.
+(function () {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!("IntersectionObserver" in window)) return;
+
+  document.addEventListener("DOMContentLoaded", function () {
+    var selector = [
+      ".card",
+      ".bento-tile",
+      ".news-card",
+      ".person",
+      ".timeline-entry",
+      ".logo-slot",
+    ].join(",");
+    var els = document.querySelectorAll(selector);
+    if (!els.length) return;
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    els.forEach(function (el, i) {
+      el.classList.add("reveal");
+      el.style.transitionDelay = (i % 5) * 60 + "ms";
+      io.observe(el);
+    });
+  });
+})();

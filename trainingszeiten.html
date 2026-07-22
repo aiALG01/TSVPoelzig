@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kontakt – TSV 1861 Pölzig</title>
-  <meta name="description" content="Kontakt zum TSV 1861 Pölzig.">
+  <title>Trainingszeiten – TSV 1861 Pölzig</title>
+  <meta name="description" content="Alle Trainingszeiten des TSV 1861 Pölzig auf einen Blick.">
   <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
@@ -38,40 +38,57 @@
 
   <main id="main">
     <div class="pagehead container">
-      <p class="eyebrow">Wir sind für euch da</p>
-      <h1>Kontakt</h1>
-      <p class="lede">Fragen zum Verein, zu einer Abteilung oder zur Mitgliedschaft? Meldet euch.</p>
+      <p class="eyebrow">Immer aktuell</p>
+      <h1>Trainingszeiten</h1>
+      <p class="lede">Alle Trainingszeiten des TSV 1861 Pölzig auf einen Blick.</p>
     </div>
 
-    <section class="section container grid-2">
-      <div class="card">
-        <h2>Anschrift</h2>
-        <p>TSV 1861 Pölzig e. V.<br>Weg der Jugend 13<br>07554 Pölzig</p>
-        <p class="placeholder-note">Eine allgemeine Vereins-E-Mail-Adresse und Telefonnummer fehlen noch, bitte zuschicken. Bis dahin läuft der Kontakt über das Formular.</p>
+    <section class="section container">
+      <div class="grid-3">
+        <div class="card">
+          <p class="eyebrow" style="margin-bottom:var(--space-2)">Fußball</p>
+          <h2 style="font-size:var(--text-lg);margin-bottom:var(--space-3)">1. Männermannschaft</h2>
+          <p style="margin:0 0 4px"><strong>Wann:</strong> Dienstag &amp; Donnerstag</p>
+          <p style="margin:0 0 4px"><strong>Uhrzeit:</strong> 18:30–20:00 Uhr</p>
+          <p style="margin:0"><strong>Wo:</strong> Sportplatz Pölzig</p>
+        </div>
+        <div class="card">
+          <p class="eyebrow" style="margin-bottom:var(--space-2)">Fußball · Jugend</p>
+          <h2 style="font-size:var(--text-lg);margin-bottom:var(--space-3)">SpG TSV 1861 Pölzig A-Junioren</h2>
+          <p style="margin:0 0 4px"><strong>Wann:</strong> Dienstag &amp; Donnerstag</p>
+          <p style="margin:0 0 4px"><strong>Uhrzeit:</strong> 18:00–19:30 Uhr</p>
+          <p style="margin:0"><strong>Wo:</strong> Halle Pölzig</p>
+        </div>
+        <div class="card">
+          <p class="eyebrow" style="margin-bottom:var(--space-2)">Fußball · Jugend</p>
+          <h2 style="font-size:var(--text-lg);margin-bottom:var(--space-3)">SpG TSV 1861 Pölzig D-Junioren</h2>
+          <p style="margin:0 0 4px"><strong>Wann:</strong> Mittwoch &amp; Freitag</p>
+          <p style="margin:0 0 4px"><strong>Uhrzeit:</strong> 17:30–19:00 Uhr</p>
+          <p style="margin:0"><strong>Wo:</strong> Halle Pölzig</p>
+        </div>
+        <div class="card">
+          <p class="eyebrow" style="margin-bottom:var(--space-2)">Volleyball</p>
+          <h2 style="font-size:var(--text-lg);margin-bottom:var(--space-3)">Training</h2>
+          <p style="margin:0 0 4px"><strong>Wann:</strong> Mittwoch</p>
+          <p style="margin:0 0 4px"><strong>Uhrzeit:</strong> 19:30–21:30 Uhr</p>
+          <p style="margin:0"><strong>Wo:</strong> Halle Pölzig</p>
+        </div>
+        <div class="card">
+          <p class="eyebrow" style="margin-bottom:var(--space-2)">Gymnastik</p>
+          <h2 style="font-size:var(--text-lg);margin-bottom:var(--space-3)">Training</h2>
+          <p style="margin:0 0 4px"><strong>Wann:</strong> Dienstag &amp; Donnerstag</p>
+          <p style="margin:0 0 4px"><strong>Uhrzeit:</strong> 19:30–20:30 Uhr</p>
+          <p style="margin:0"><strong>Wo:</strong> Halle Pölzig</p>
+        </div>
+        <div class="card">
+          <p class="eyebrow" style="margin-bottom:var(--space-2)">Tanzen</p>
+          <h2 style="font-size:var(--text-lg);margin-bottom:var(--space-3)">Training</h2>
+          <p style="margin:0 0 4px"><strong>Wann:</strong> Donnerstag</p>
+          <p style="margin:0 0 4px"><strong>Uhrzeit:</strong> 18:30–20:30 Uhr</p>
+          <p style="margin:0"><strong>Wo:</strong> Aula Pölzig</p>
+        </div>
       </div>
-      <div>
-        <h2>Nachricht senden</h2>
-        <p class="placeholder-note">Nachrichten gehen zunächst an Marc Schulze (1. Vorsitzender). Technisch läuft das über Netlify Forms, sobald die Seite dort deployed ist, siehe README.</p>
-        <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="danke.html">
-          <input type="hidden" name="form-name" value="kontakt">
-          <p class="visually-hidden">
-            <label>Nicht ausfüllen: <input name="bot-field"></label>
-          </p>
-          <div class="form-field">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div class="form-field">
-            <label for="email">E-Mail</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div class="form-field">
-            <label for="nachricht">Nachricht</label>
-            <textarea id="nachricht" name="nachricht" rows="5" required></textarea>
-          </div>
-          <button class="btn btn-primary" type="submit">Absenden</button>
-        </form>
-      </div>
+      <p style="margin-top:var(--space-6)"><a class="btn btn-ghost" href="spielorte.html">Spiel- und Trainingsorte ansehen</a></p>
     </section>
   </main>
 

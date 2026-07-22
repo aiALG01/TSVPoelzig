@@ -9,12 +9,14 @@ in `content/neuigkeiten.json` speichert.
 
 ```
 index.html              Startseite
-verein.html              Über den Verein
+verein.html              Verein-Hub, verlinkt Geschichte/Vorstand/Mitglied werden
+geschichte.html          Zeitleiste 1861-2021, mit Jubiläums-Highlights
+vorstand.html            Vorstand und Abteilungsleitungen (3-spaltig, große Fotos)
 abteilungen/
   index.html             Übersicht
   fussball.html           inkl. Hinweis zur SG Pölzig-Heuckewalde
   volleyball.html
-  turnen.html
+  gymnastik.html
   tanzen.html
 neuigkeiten.html         Alle Neuigkeiten
 termine.html
@@ -87,6 +89,20 @@ Danach reicht für neue Beiträge: `/admin` öffnen, einloggen, Kategorie
 eintragen, „Veröffentlichen“ klicken. Der Beitrag erscheint automatisch auf
 der Startseite und unter „Neuigkeiten“.
 
+## Kontaktformular einrichten
+
+Das Formular auf `kontakt.html` ist für **Netlify Forms** vorbereitet
+(`data-netlify="true"`), braucht aber einen einmaligen Schritt im
+Netlify-Dashboard, damit Nachrichten auch ankommen:
+
+1. Nach dem ersten Deploy: Site settings → Forms → Form notifications →
+   „Add notification“ → „Email notification“.
+2. Als Empfänger vorerst `an.marc@web.de` (Marc Schulze, 1. Vorsitzender)
+   eintragen. Weitere Empfänger lassen sich später ergänzen.
+
+Ohne diesen Schritt werden Formular-Einsendungen zwar bei Netlify
+gespeichert, aber nicht per E-Mail zugestellt.
+
 ## Vor dem Go-Live noch offen
 
 - **Impressum und Datenschutzerklärung**: enthalten absichtlich Platzhalter
@@ -97,10 +113,11 @@ der Startseite und unter „Neuigkeiten“.
   Beschriftung), kein Stock- oder KI-Material. Echte Fotos einfach über
   `/admin` hochladen (Neuigkeiten) oder für feste Seiten direkt in den
   jeweiligen `<img>`/`.photoslot`-Bereich einsetzen.
-- **Vereinslogos SG Pölzig-Heuckewalde**: Platzhalter-Slots auf der
-  Fußball-Abteilungsseite und der Startseite, warten auf die echten Logos.
-- **Kontaktformular**: noch nicht an ein Postfach angebunden, Button ist
-  bewusst deaktiviert, bis eine Vereins-E-Mail-Adresse feststeht.
+- **Fußball-Actionfoto**: einziger verbliebener Foto-Platzhalter, wartet auf
+  ein echtes Bild.
+- **Kontaktformular**: technisch an Netlify Forms angebunden, sendet aber
+  erst E-Mails, nachdem die Empfänger-Adresse im Netlify-Dashboard
+  eingetragen ist, siehe Abschnitt „Kontaktformular einrichten“ oben.
 - **Domain-Umzug von Jimdo**: die alte Seite bleibt bis zum erfolgreichen
   DNS-Umzug online, siehe Absprache im Projekt-Chat, Jimdo wird erst danach
   gekündigt.

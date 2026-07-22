@@ -1,3 +1,32 @@
 {
-  "items": []
+  "items": [
+    {
+      "category": "termin",
+      "title": "Blitzturnier gegen Kretzschau und Geußnitz",
+      "excerpt": "Erster Härtetest der Saisonvorbereitung: Jeder-gegen-Jeden-Turnier (11 gegen 11, 25 Minuten pro Halbzeit) gegen SV Blau-Gelb Geußnitz und SV 1893 Kretzschau. Beginn 13:00 Uhr, Sportplatz Heuckewalde. Kommt vorbei und unterstützt uns am Spielfeldrand!",
+      "date": "2026-07-25",
+      "image": null
+    },
+    {
+      "category": "termin",
+      "title": "Testspiel gegen VfL Gera II",
+      "excerpt": "Vorbereitungsspiel der Herren gegen VfL Gera II.",
+      "date": "2026-08-01",
+      "image": null
+    },
+    {
+      "category": "termin",
+      "title": "Testspiel gegen Eurotrink Gera II",
+      "excerpt": "Vorbereitungsspiel der Herren gegen Eurotrink Gera II.",
+      "date": "2026-08-07",
+      "image": null
+    },
+    {
+      "category": "termin",
+      "title": "Testspiel gegen SV Aga",
+      "excerpt": "Vorbereitungsspiel der Herren gegen SV Aga.",
+      "date": "2026-08-09",
+      "image": null
+    }
+  ]
 }
