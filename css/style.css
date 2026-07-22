@@ -270,6 +270,9 @@ main {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-display);
   font-weight: 800;
   font-size: var(--text-lg);
@@ -277,6 +280,12 @@ main {
   color: var(--color-ink);
   text-decoration: none;
   white-space: nowrap;
+}
+
+.brand img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
 }
 
 .nav-links {
@@ -847,6 +856,97 @@ main {
 
 .prose li {
   margin-bottom: var(--space-2);
+}
+
+/* ---------------------------------------------------------------
+   13a. Timeline (Vereinsgeschichte)
+--------------------------------------------------------------- */
+.timeline {
+  border-top: 1px solid var(--color-paper-line);
+}
+
+.timeline-entry {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: var(--space-5);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-paper-line);
+}
+
+.timeline-entry .year {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-pulse-ink);
+  font-size: var(--text-base);
+  margin: 0;
+}
+
+.timeline-entry p {
+  margin: 0;
+  font-size: var(--text-sm);
+  max-width: none;
+}
+
+@media (max-width: 640px) {
+  .timeline-entry {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+  }
+}
+
+/* ---------------------------------------------------------------
+   13b. Personen-Raster (Vorstand)
+--------------------------------------------------------------- */
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5) var(--space-4);
+}
+
+.person {
+  text-align: center;
+}
+
+.person .avatar,
+.person .avatar-fallback {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  margin: 0 auto var(--space-3);
+  display: block;
+  object-fit: cover;
+}
+
+.person .avatar-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-pulse-tint);
+  color: var(--color-pulse-ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.person h3 {
+  font-size: var(--text-sm);
+  margin: 0 0 2px;
+}
+
+.person .role {
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.person .role a {
+  color: var(--color-pulse-ink);
+}
+
+@media (max-width: 860px) {
+  .people-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* ---------------------------------------------------------------
