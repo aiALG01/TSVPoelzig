@@ -9,7 +9,9 @@ in `content/neuigkeiten.json` speichert.
 
 ```
 index.html              Startseite
-verein.html              Über den Verein
+verein.html              Verein-Hub, verlinkt Geschichte/Vorstand/Mitglied werden
+geschichte.html          Zeitleiste 1861-2021, mit Jubiläums-Highlights
+vorstand.html            Vorstand und Abteilungsleitungen (3-spaltig, große Fotos)
 abteilungen/
   index.html             Übersicht
   fussball.html           inkl. Hinweis zur SG Pölzig-Heuckewalde
@@ -97,8 +99,8 @@ der Startseite und unter „Neuigkeiten“.
   Beschriftung), kein Stock- oder KI-Material. Echte Fotos einfach über
   `/admin` hochladen (Neuigkeiten) oder für feste Seiten direkt in den
   jeweiligen `<img>`/`.photoslot`-Bereich einsetzen.
-- **Vereinslogos SG Pölzig-Heuckewalde**: Platzhalter-Slots auf der
-  Fußball-Abteilungsseite und der Startseite, warten auf die echten Logos.
+- **Fußball-Actionfoto**: einziger verbliebener Foto-Platzhalter, wartet auf
+  ein echtes Bild.
 - **Kontaktformular**: noch nicht an ein Postfach angebunden, Button ist
   bewusst deaktiviert, bis eine Vereins-E-Mail-Adresse feststeht.
 - **Domain-Umzug von Jimdo**: die alte Seite bleibt bis zum erfolgreichen
