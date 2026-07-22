@@ -1,0 +1,37 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Netlify Identity + Git Gateway: der Vorstand meldet sich über eine E-Mail-
+# Einladung an, kein GitHub-Zugang und kein eigener Server nötig. Setup-Schritte
+# stehen im Haupt-README unter "Neuigkeiten pflegen (/admin)".
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "neuigkeiten"
+    label: "Neuigkeiten"
+    description: "Vereins-Meldungen, Spielberichte und Termine für die Startseite und die Neuigkeiten-Seite."
+    files:
+      - file: "content/neuigkeiten.json"
+        label: "Neuigkeiten-Liste"
+        name: "neuigkeiten"
+        fields:
+          - label: "Beiträge"
+            name: "items"
+            widget: "list"
+            label_singular: "Beitrag"
+            summary: "{{title}} ({{category}}, {{date}})"
+            fields:
+              - label: "Kategorie"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Verein", value: "verein" }
+                  - { label: "Spielbericht", value: "spielbericht" }
+                  - { label: "Termin", value: "termin" }
+              - { label: "Titel", name: "title", widget: "string" }
+              - { label: "Kurztext", name: "excerpt", widget: "text", required: false }
+              - { label: "Datum", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+              - { label: "Bild", name: "image", widget: "image", required: false, hint: "Optional, sonst erscheint ein Platzhalter." }
