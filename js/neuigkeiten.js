@@ -72,7 +72,7 @@
     var containers = document.querySelectorAll("[data-news-list]");
     if (containers.length === 0) return;
 
-    fetch("/content/neuigkeiten.json")
+    fetch("content/neuigkeiten.json")
       .then(function (res) {
         if (!res.ok) throw new Error("Neuigkeiten konnten nicht geladen werden.");
         return res.json();
