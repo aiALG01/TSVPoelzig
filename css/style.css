@@ -299,13 +299,13 @@ main {
   font-weight: 500;
 }
 
-.nav-links a {
+.nav-links > li > a {
   position: relative;
   color: var(--color-ink);
   text-decoration: none;
 }
 
-.nav-links a::after {
+.nav-links > li > a::after {
   content: "";
   position: absolute;
   left: 0;
@@ -318,12 +318,92 @@ main {
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.nav-links a:hover {
+.nav-links > li > a:hover {
   color: var(--color-pulse-ink);
 }
 
-.nav-links a:hover::after {
+.nav-links > li > a:hover::after {
   transform: scaleX(1);
+}
+
+.nav-links .chevron {
+  font-size: 0.6rem;
+  color: var(--color-muted);
+  margin-left: 2px;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.nav-links li.has-submenu:hover .chevron,
+.nav-links li.has-submenu:focus-within .chevron {
+  transform: translateY(1px) rotate(180deg);
+}
+
+.nav-links li.has-submenu {
+  position: relative;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: -14px;
+  min-width: 210px;
+  background: #fff;
+  border: 1px solid var(--color-paper-line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 8px;
+  margin: 10px 0 0;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+  z-index: 50;
+}
+
+.nav-links li.has-submenu:hover .submenu,
+.nav-links li.has-submenu:focus-within .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.submenu li {
+  margin: 0;
+}
+
+.submenu a {
+  display: block;
+  padding: 9px 12px;
+  border-radius: var(--radius-card);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.submenu a:hover {
+  background: var(--color-pulse-tint);
+  color: var(--color-pulse-ink);
+}
+
+@media (max-width: 900px) {
+  .submenu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    padding: 4px 0 4px 14px;
+    margin: 4px 0 0;
+    background: transparent;
+  }
+  .nav-links li.has-submenu {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .nav-cta {
@@ -343,6 +423,10 @@ main {
 .nav-toggle svg {
   width: 26px;
   height: 26px;
+}
+
+.nav-links .mobile-kontakt {
+  display: none;
 }
 
 @media (max-width: 900px) {
@@ -367,6 +451,10 @@ main {
     border-bottom: 1px solid var(--color-paper-line);
     padding: var(--space-5) 24px var(--space-6);
     gap: var(--space-4);
+  }
+  .nav-links .mobile-kontakt {
+    display: block;
+    margin-top: var(--space-2);
   }
 }
 
