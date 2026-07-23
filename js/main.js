@@ -107,9 +107,11 @@ var TSVConsent = (function () {
       ".card",
       ".bento-tile",
       ".news-card",
+      ".termin-row",
       ".person",
       ".timeline-entry",
       ".logo-slot",
+      ".sponsor-card",
     ].join(",");
     var els = document.querySelectorAll(selector);
     if (!els.length) return;
