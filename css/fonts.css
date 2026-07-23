@@ -1,6 +1,4 @@
-/* Clash Display (Headlines) und Synonym (Fließtext), beide Fontshare, ITF Free Font License.
-   Dateien liegen noch nicht vor (Download war aus der Bau-Umgebung heraus nicht möglich), siehe
-   fonts/README.md fuer die Anleitung. Bis dahin greifen die Fallback-Stacks unten automatisch. */
+/* Clash Display (Headlines) und Synonym (Fließtext), beide Fontshare, ITF Free Font License. */
 
 @font-face {
   font-family: "Clash Display";
@@ -14,14 +12,6 @@
   font-family: "Clash Display";
   src: url("../fonts/ClashDisplay-Bold.woff2") format("woff2");
   font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Clash Display";
-  src: url("../fonts/ClashDisplay-Extrabold.woff2") format("woff2");
-  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
@@ -46,6 +36,14 @@
   font-family: "Synonym";
   src: url("../fonts/Synonym-Semibold.woff2") format("woff2");
   font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Synonym";
+  src: url("../fonts/Synonym-Bold.woff2") format("woff2");
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }

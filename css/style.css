@@ -274,7 +274,7 @@ main {
   align-items: center;
   gap: 10px;
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: var(--text-lg);
   letter-spacing: -0.01em;
   color: var(--color-ink);

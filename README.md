@@ -64,9 +64,8 @@ Farben, Typografie-Skala und Abstände stehen als CSS-Variablen ganz oben in
 ## Schriftarten
 
 Clash Display und Synonym (beide Fontshare) sind als `@font-face` in
-`css/fonts.css` verdrahtet, die Dateien selbst fehlen noch, siehe
-`fonts/README.md`. Bis dahin greift automatisch ein System-Font-Fallback,
-die Seite ist also lauffähig, nur noch nicht mit der finalen Typografie.
+`css/fonts.css` verdrahtet, die Dateien liegen selbst gehostet in `fonts/`,
+siehe `fonts/README.md` für Details zu den vorhandenen Schnitten.
 
 ## Neuigkeiten pflegen (`/admin`)
 
@@ -108,7 +107,6 @@ gespeichert, aber nicht per E-Mail zugestellt.
 - **Impressum und Datenschutzerklärung**: enthalten absichtlich Platzhalter
   (`[Platzhalter: …]`), keine erfundenen Angaben. Beide Seiten sind mit einem
   roten Warnhinweis markiert, bis sie vollständig sind.
-- **Schriftdateien**: siehe `fonts/README.md`.
 - **Fotos**: alle Bildflächen sind bewusst Platzhalter (Streifenmuster mit
   Beschriftung), kein Stock- oder KI-Material. Echte Fotos einfach über
   `/admin` hochladen (Neuigkeiten) oder für feste Seiten direkt in den
