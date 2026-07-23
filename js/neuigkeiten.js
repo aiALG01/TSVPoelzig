@@ -46,18 +46,46 @@
     );
   }
 
-  function renderInto(container, items, limit, category, emptyText) {
-    var filtered = category ? items.filter(function (i) { return i.category === category; }) : items;
+  function termineRowHtml(item) {
+    var imageHtml = item.image
+      ? '<img class="termin-photo" src="' + escapeHtml(item.image) + '" alt="" loading="lazy">'
+      : "";
+    return (
+      '<article class="termin-row">' +
+      '<div class="termin-when">' +
+      '<span class="termin-date">' + formatDate(item.date) + "</span>" +
+      '<h3 class="termin-title">' + escapeHtml(item.title || "Ohne Titel") + "</h3>" +
+      "</div>" +
+      '<div class="termin-desc">' +
+      (item.excerpt ? "<p>" + escapeHtml(item.excerpt) + "</p>" : "") +
+      imageHtml +
+      "</div>" +
+      "</article>"
+    );
+  }
+
+  function renderInto(container, items, opts) {
+    opts = opts || {};
+    var filtered = items;
+    if (opts.category) {
+      filtered = filtered.filter(function (i) { return i.category === opts.category; });
+    }
+    if (opts.excludeCategory) {
+      filtered = filtered.filter(function (i) { return i.category !== opts.excludeCategory; });
+    }
     var sorted = filtered.slice().sort(function (a, b) {
-      return new Date(b.date || 0) - new Date(a.date || 0);
+      var diff = new Date(a.date || 0) - new Date(b.date || 0);
+      return opts.sort === "asc" ? diff : -diff;
     });
-    if (limit) sorted = sorted.slice(0, limit);
+    if (opts.limit) sorted = sorted.slice(0, opts.limit);
 
     if (sorted.length === 0) {
-      container.outerHTML = emptyStateHtml(emptyText);
+      container.outerHTML = emptyStateHtml(opts.emptyText);
       return;
     }
-    container.innerHTML = sorted.map(cardHtml).join("");
+    container.innerHTML = opts.layout === "rows"
+      ? sorted.map(termineRowHtml).join("")
+      : sorted.map(cardHtml).join("");
   }
 
   function emptyStateHtml(text) {
@@ -81,10 +109,14 @@
       .then(function (data) {
         var items = (data && data.items) || [];
         containers.forEach(function (container) {
-          var limit = parseInt(container.getAttribute("data-news-limit"), 10) || null;
-          var category = container.getAttribute("data-news-category") || null;
-          var emptyText = container.getAttribute("data-news-empty-text") || null;
-          renderInto(container, items, limit, category, emptyText);
+          renderInto(container, items, {
+            limit: parseInt(container.getAttribute("data-news-limit"), 10) || null,
+            category: container.getAttribute("data-news-category") || null,
+            excludeCategory: container.getAttribute("data-news-exclude-category") || null,
+            emptyText: container.getAttribute("data-news-empty-text") || null,
+            layout: container.getAttribute("data-news-layout") || "grid",
+            sort: container.getAttribute("data-news-sort") || "desc",
+          });
         });
       })
       .catch(function () {
