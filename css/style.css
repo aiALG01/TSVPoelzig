@@ -274,7 +274,7 @@ main {
   align-items: center;
   gap: 10px;
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   font-size: var(--text-lg);
   letter-spacing: -0.01em;
   color: var(--color-ink);
@@ -1070,7 +1070,7 @@ main {
 .timeline-body {
   flex: 1;
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 118px 1fr;
   gap: var(--space-5);
   padding: var(--space-4) 0;
   align-items: baseline;
@@ -1080,7 +1080,7 @@ main {
   font-family: var(--font-display);
   font-weight: 700;
   color: var(--color-pulse-ink);
-  font-size: var(--text-base);
+  font-size: var(--text-xl);
   margin: 0;
   display: flex;
   align-items: center;
