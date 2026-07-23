@@ -111,6 +111,7 @@ var TSVConsent = (function () {
       ".person",
       ".timeline-entry",
       ".logo-slot",
+      ".sponsor-card",
     ].join(",");
     var els = document.querySelectorAll(selector);
     if (!els.length) return;
