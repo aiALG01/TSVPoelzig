@@ -522,8 +522,8 @@ main {
 .hero-row {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--space-6);
+  justify-content: flex-start;
+  gap: var(--space-8);
   flex-wrap: wrap;
 }
 
@@ -584,12 +584,12 @@ main {
 }
 
 .marquee-diagonal {
-  width: 112%;
-  margin-left: -6%;
-  margin-right: -6%;
-  margin-top: -46px;
-  margin-bottom: -14px;
-  transform: rotate(-2.5deg);
+  width: 120%;
+  margin-left: -10%;
+  margin-right: -10%;
+  margin-top: -34px;
+  margin-bottom: -30px;
+  transform: rotate(-4.5deg);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
