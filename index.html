@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fußball, Volleyball, Gymnastik, Tanzen – TSV 1861 Pölzig</title>
-  <meta name="description" content="Der TSV 1861 Pölzig ist der Sportverein fürs Dorf: vier Abteilungen, zwei Sportplätze, ein Verein seit 1861.">
+  <meta name="description" content="Der TSV 1861 Pölzig ist der Sportverein fürs Dorf: vier Abteilungen, ein Verein seit 1861.">
   <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
@@ -24,7 +24,15 @@
               <li><a href="vorstand.html">Vorstand</a></li>
             </ul>
           </li>
-          <li><a href="abteilungen/index.html">Abteilungen</a></li>
+          <li class="has-submenu">
+            <a href="abteilungen/index.html">Abteilungen <span class="chevron">&#9662;</span></a>
+            <ul class="submenu">
+              <li><a href="abteilungen/fussball.html">Fußball</a></li>
+              <li><a href="abteilungen/volleyball.html">Volleyball</a></li>
+              <li><a href="abteilungen/gymnastik.html">Gymnastik</a></li>
+              <li><a href="abteilungen/tanzen.html">Tanzen</a></li>
+            </ul>
+          </li>
           <li class="has-submenu">
             <a href="trainingszeiten.html">Training <span class="chevron">&#9662;</span></a>
             <ul class="submenu">
@@ -51,17 +59,50 @@
   </header>
 
   <main id="main">
-    <section class="hero container">
-      <p class="eyebrow">Fußball · Volleyball · Gymnastik · Tanzen</p>
-      <div class="hero-head">
-        <h1>Vier Abteilungen. Ein Dorf.</h1>
-        <p class="lede">Der TSV 1861 Pölzig ist der Sportverein fürs ganze Dorf, für Kinder, Eltern und alle, die mitmachen oder mitfiebern wollen.</p>
-      </div>
-      <div class="hero-cta-row">
-        <a class="btn btn-primary" href="abteilungen/index.html">Abteilung finden</a>
-        <a class="btn btn-ghost" href="trainingszeiten.html">Trainingszeiten</a>
+    <section class="hero hero-dark">
+      <div class="hero-shape hero-shape-circle" aria-hidden="true"></div>
+      <div class="hero-shape hero-shape-triangle" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-row">
+          <div class="hero-head">
+            <h1>Vier Abteilungen. <span class="hl-yellow">Ein Dorf.</span></h1>
+            <p class="lede">Der TSV 1861 Pölzig ist der Sportverein fürs ganze Dorf, für Kinder, Eltern und alle, die mitmachen oder mitfiebern wollen.</p>
+          </div>
+          <div class="hero-cta-col">
+            <a class="btn btn-primary" href="abteilungen/index.html">Abteilung finden</a>
+            <a class="btn btn-ghost-light" href="trainingszeiten.html">Trainingszeiten</a>
+          </div>
+        </div>
       </div>
 
+      <div class="marquee marquee-diagonal" aria-hidden="true">
+        <div class="marquee-track">
+          <span class="marquee-item">Fußball&nbsp;&middot;&nbsp;Volleyball&nbsp;&middot;&nbsp;Gymnastik&nbsp;&middot;&nbsp;Tanzen&nbsp;&middot;&nbsp;Seit 1861&nbsp;&middot;&nbsp;Fußball&nbsp;&middot;&nbsp;Volleyball&nbsp;&middot;&nbsp;Gymnastik&nbsp;&middot;&nbsp;Tanzen&nbsp;&middot;&nbsp;Seit 1861&nbsp;&middot;&nbsp;Fußball&nbsp;&middot;&nbsp;Volleyball&nbsp;&middot;&nbsp;Gymnastik&nbsp;&middot;&nbsp;Tanzen&nbsp;&middot;&nbsp;Seit 1861&nbsp;&middot;&nbsp;Fußball&nbsp;&middot;&nbsp;Volleyball&nbsp;&middot;&nbsp;Gymnastik&nbsp;&middot;&nbsp;Tanzen&nbsp;&middot;&nbsp;Seit 1861&nbsp;&middot;&nbsp;Fußball&nbsp;&middot;&nbsp;Volleyball&nbsp;&middot;&nbsp;Gymnastik&nbsp;&middot;&nbsp;Tanzen&nbsp;&middot;&nbsp;Seit 1861&nbsp;&middot;&nbsp;Fußball&nbsp;&middot;&nbsp;Volleyball&nbsp;&middot;&nbsp;Gymnastik&nbsp;&middot;&nbsp;Tanzen&nbsp;&middot;&nbsp;Seit 1861&nbsp;&middot;&nbsp;</span>
+          <span class="marquee-item">Fußball&nbsp;&middot;&nbsp;Volleyball&nbsp;&middot;&nbsp;Gymnastik&nbsp;&middot;&nbsp;Tanzen&nbsp;&middot;&nbsp;Seit 1861&nbsp;&middot;&nbsp;Fußball&nbsp;&middot;&nbsp;Volleyball&nbsp;&middot;&nbsp;Gymnastik&nbsp;&middot;&nbsp;Tanzen&nbsp;&middot;&nbsp;Seit 1861&nbsp;&middot;&nbsp;Fußball&nbsp;&middot;&nbsp;Volleyball&nbsp;&middot;&nbsp;Gymnastik&nbsp;&middot;&nbsp;Tanzen&nbsp;&middot;&nbsp;Seit 1861&nbsp;&middot;&nbsp;Fußball&nbsp;&middot;&nbsp;Volleyball&nbsp;&middot;&nbsp;Gymnastik&nbsp;&middot;&nbsp;Tanzen&nbsp;&middot;&nbsp;Seit 1861&nbsp;&middot;&nbsp;Fußball&nbsp;&middot;&nbsp;Volleyball&nbsp;&middot;&nbsp;Gymnastik&nbsp;&middot;&nbsp;Tanzen&nbsp;&middot;&nbsp;Seit 1861&nbsp;&middot;&nbsp;Fußball&nbsp;&middot;&nbsp;Volleyball&nbsp;&middot;&nbsp;Gymnastik&nbsp;&middot;&nbsp;Tanzen&nbsp;&middot;&nbsp;Seit 1861&nbsp;&middot;&nbsp;</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-row">
+      <div class="container stats-grid">
+        <div class="stat">
+          <span class="stat-num">1861</span>
+          <span class="stat-label">Gegründet</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Abteilungen</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">165+</span>
+          <span class="stat-label">Jahre Vereinsleben</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <p class="eyebrow">Wähle dein Team</p>
+      <h2>Finde deine Abteilung</h2>
       <div class="bento">
         <a class="bento-tile big" href="abteilungen/fussball.html">
           <div class="photoslot ps-fussball"><span class="tag">Foto folgt: Fußball</span></div>
@@ -75,14 +116,20 @@
           <img src="images/site/turnen-umzug.jpeg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="dept-name">Gymnastik</span>
         </a>
-        <a class="bento-tile" href="abteilungen/tanzen.html">
+        <a class="bento-tile wide" href="abteilungen/tanzen.html">
           <img src="images/site/tanzen-gruppe.jpeg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="dept-name">Tanzen</span>
         </a>
-        <div class="bento-tile info">
-          <p>Trainingszeiten, Spielorte und Kontakt findest du im Anschluss an die Neuigkeiten.</p>
-        </div>
       </div>
+
+      <a class="training-cta" href="trainingszeiten.html">
+        <div>
+          <p class="eyebrow">Loslegen</p>
+          <h2>Trainingszeiten &amp; Spielorte</h2>
+          <p>Alle Trainingszeiten und beide Sportplätze auf einen Blick.</p>
+        </div>
+        <span class="training-cta-arrow" aria-hidden="true">&#8594;</span>
+      </a>
     </section>
 
     <section class="section container" aria-labelledby="neuigkeiten-heading">
@@ -97,16 +144,16 @@
       </div>
     </section>
 
-    <section class="section section-alt">
-      <div class="container grid-2" style="align-items:center;gap:var(--space-7)">
-        <div>
-          <p class="eyebrow">Spielgemeinschaft</p>
-          <h2>Fußball in der SG Pölzig-Heuckewalde</h2>
-          <p class="lede">Unsere Fußball-Abteilung tritt aktuell gemeinsam mit dem Heuckewalder SV als Spielgemeinschaft an, auch auf dem Platz in Gutenborn.</p>
-          <a class="btn btn-ghost" href="abteilungen/fussball.html">Zur Fußball-Abteilung</a>
-        </div>
-        <div style="display:flex;align-items:center;justify-content:center;height:220px">
-          <img src="images/site/logo-sg-poelzig-heuckewalde.jpeg" alt="Logo Spielgemeinschaft Pölzig-Heuckewalde" loading="lazy" style="max-height:220px;width:auto">
+    <section class="split-banner">
+      <div class="split-banner-text">
+        <p class="eyebrow eyebrow-on-dark">Spielgemeinschaft</p>
+        <h2>Fußball in der SG Pölzig-Heuckewalde</h2>
+        <p class="lede lede-on-dark">Unsere Fußball-Abteilung tritt aktuell gemeinsam mit dem Heuckewalder SV als Spielgemeinschaft an, auch auf dem Platz in Gutenborn.</p>
+        <a class="btn btn-ghost-light" href="abteilungen/fussball.html">Zur Fußball-Abteilung</a>
+      </div>
+      <div class="split-banner-media">
+        <div class="split-banner-card">
+          <img src="images/site/logo-sg-poelzig-heuckewalde.jpeg" alt="Logo Spielgemeinschaft Pölzig-Heuckewalde" loading="lazy">
         </div>
       </div>
     </section>

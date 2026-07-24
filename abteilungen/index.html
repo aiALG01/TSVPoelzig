@@ -24,7 +24,15 @@
               <li><a href="../vorstand.html">Vorstand</a></li>
             </ul>
           </li>
-          <li><a href="../abteilungen/index.html">Abteilungen</a></li>
+          <li class="has-submenu">
+            <a href="../abteilungen/index.html">Abteilungen <span class="chevron">&#9662;</span></a>
+            <ul class="submenu">
+              <li><a href="../abteilungen/fussball.html">Fußball</a></li>
+              <li><a href="../abteilungen/volleyball.html">Volleyball</a></li>
+              <li><a href="../abteilungen/gymnastik.html">Gymnastik</a></li>
+              <li><a href="../abteilungen/tanzen.html">Tanzen</a></li>
+            </ul>
+          </li>
           <li class="has-submenu">
             <a href="../trainingszeiten.html">Training <span class="chevron">&#9662;</span></a>
             <ul class="submenu">
@@ -51,11 +59,15 @@
   </header>
 
   <main id="main">
+    <section class="pagehead-wrap">
+    <div class="hero-shape hero-shape-circle" aria-hidden="true"></div>
+    <div class="hero-shape hero-shape-triangle" aria-hidden="true"></div>
     <div class="pagehead container">
       <p class="eyebrow">Vier Sparten, ein Verein</p>
       <h1>Abteilungen</h1>
       <p class="lede">Jede Abteilung hat ihre eigene Seite mit Trainingszeiten, Ansprechpartnern und aktuellen Informationen.</p>
     </div>
+    </section>
 
     <section class="section container">
       <div class="bento">
@@ -76,6 +88,15 @@
           <span class="dept-name">Tanzen</span>
         </a>
       </div>
+
+      <a class="training-cta" href="../trainingszeiten.html">
+        <div>
+          <p class="eyebrow">Loslegen</p>
+          <h2>Trainingszeiten &amp; Spielorte</h2>
+          <p>Alle Trainingszeiten und beide Sportplätze auf einen Blick.</p>
+        </div>
+        <span class="training-cta-arrow" aria-hidden="true">&#8594;</span>
+      </a>
     </section>
   </main>
 
