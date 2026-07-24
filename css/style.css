@@ -546,19 +546,47 @@ main {
   transform: translateY(-2px);
 }
 
-.bento-tile.info {
-  background: var(--color-ink);
-  color: #f1efe8;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: var(--space-5);
+.bento-tile.wide {
+  grid-column: span 2;
 }
 
-.bento-tile.info p {
-  font-size: var(--text-sm);
-  color: #cfcbd0;
+.training-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  background: var(--color-pulse);
+  color: #fff;
+  border-radius: var(--radius-card);
+  padding: var(--space-6) var(--space-7);
+  text-decoration: none;
+  margin-top: 10px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.training-cta:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.training-cta .eyebrow {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.training-cta h2 {
+  color: #fff;
+  margin: 0 0 4px;
+}
+
+.training-cta p:not(.eyebrow) {
   margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.training-cta-arrow {
+  font-size: 2rem;
+  line-height: 1;
+  flex: none;
 }
 
 @media (max-width: 860px) {
@@ -570,6 +598,11 @@ main {
     grid-row: auto;
     grid-column: span 2;
     height: 220px;
+  }
+  .training-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
   }
 }
 

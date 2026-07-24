@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fußball, Volleyball, Gymnastik, Tanzen – TSV 1861 Pölzig</title>
-  <meta name="description" content="Der TSV 1861 Pölzig ist der Sportverein fürs Dorf: vier Abteilungen, zwei Sportplätze, ein Verein seit 1861.">
+  <meta name="description" content="Der TSV 1861 Pölzig ist der Sportverein fürs Dorf: vier Abteilungen, ein Verein seit 1861.">
   <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
@@ -24,7 +24,15 @@
               <li><a href="vorstand.html">Vorstand</a></li>
             </ul>
           </li>
-          <li><a href="abteilungen/index.html">Abteilungen</a></li>
+          <li class="has-submenu">
+            <a href="abteilungen/index.html">Abteilungen <span class="chevron">&#9662;</span></a>
+            <ul class="submenu">
+              <li><a href="abteilungen/fussball.html">Fußball</a></li>
+              <li><a href="abteilungen/volleyball.html">Volleyball</a></li>
+              <li><a href="abteilungen/gymnastik.html">Gymnastik</a></li>
+              <li><a href="abteilungen/tanzen.html">Tanzen</a></li>
+            </ul>
+          </li>
           <li class="has-submenu">
             <a href="trainingszeiten.html">Training <span class="chevron">&#9662;</span></a>
             <ul class="submenu">
@@ -75,14 +83,20 @@
           <img src="images/site/turnen-umzug.jpeg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="dept-name">Gymnastik</span>
         </a>
-        <a class="bento-tile" href="abteilungen/tanzen.html">
+        <a class="bento-tile wide" href="abteilungen/tanzen.html">
           <img src="images/site/tanzen-gruppe.jpeg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="dept-name">Tanzen</span>
         </a>
-        <div class="bento-tile info">
-          <p>Trainingszeiten, Spielorte und Kontakt findest du im Anschluss an die Neuigkeiten.</p>
-        </div>
       </div>
+
+      <a class="training-cta" href="trainingszeiten.html">
+        <div>
+          <p class="eyebrow">Loslegen</p>
+          <h2>Trainingszeiten &amp; Spielorte</h2>
+          <p>Alle Trainingszeiten und beide Sportplätze auf einen Blick.</p>
+        </div>
+        <span class="training-cta-arrow" aria-hidden="true">&#8594;</span>
+      </a>
     </section>
 
     <section class="section container" aria-labelledby="neuigkeiten-heading">
