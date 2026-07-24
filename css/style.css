@@ -253,7 +253,8 @@ main {
 }
 
 .btn-dark:hover {
-  background: #3a323d;
+  background: var(--color-pulse);
+  color: #fff;
 }
 
 .btn-small {
@@ -503,13 +504,6 @@ main {
   font-size: var(--text-5xl);
 }
 
-.hero-cta-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: var(--space-7);
-}
-
 /* Dunkler Hero (Startseite) + geteilte Optik für die Seitenköpfe */
 .hero-dark {
   position: relative;
@@ -522,6 +516,15 @@ main {
 .hero-dark .hero-inner {
   position: relative;
   z-index: 1;
+  padding-bottom: var(--space-8);
+}
+
+.hero-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-6);
+  flex-wrap: wrap;
 }
 
 .hero-dark .hero-head {
@@ -532,21 +535,16 @@ main {
   color: #c9c5cb;
 }
 
-.hl-yellow {
-  color: var(--color-sun);
+.hero-cta-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: none;
+  padding-top: 8px;
 }
 
-.eyebrow-pill {
-  display: inline-flex;
-  font-size: var(--text-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 700;
-  color: #fff;
-  background: var(--color-pulse);
-  padding: 8px 16px;
-  border-radius: var(--radius-pill);
-  margin: 0 0 var(--space-4);
+.hl-yellow {
+  color: var(--color-sun);
 }
 
 .hero-shape {
@@ -585,6 +583,16 @@ main {
   white-space: nowrap;
 }
 
+.marquee-diagonal {
+  width: 112%;
+  margin-left: -6%;
+  margin-right: -6%;
+  margin-top: -46px;
+  margin-bottom: -14px;
+  transform: rotate(-2.5deg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
 .marquee-track {
   display: inline-flex;
   animation: marquee-scroll 22s linear infinite;
@@ -592,14 +600,13 @@ main {
 
 .marquee-item {
   display: inline-block;
-  padding: 14px 0;
+  padding: 16px 0;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: var(--text-sm);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--color-ink);
-  padding-right: 1.5em;
 }
 
 @keyframes marquee-scroll {
