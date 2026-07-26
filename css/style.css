@@ -516,7 +516,7 @@ main {
 .hero-dark .hero-inner {
   position: relative;
   z-index: 1;
-  padding-bottom: var(--space-8);
+  padding-bottom: var(--space-9);
 }
 
 .hero-row {
@@ -587,7 +587,7 @@ main {
   width: 120%;
   margin-left: -10%;
   margin-right: -10%;
-  margin-top: -34px;
+  margin-top: -70px;
   margin-bottom: -30px;
   transform: rotate(-4.5deg);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
@@ -595,7 +595,7 @@ main {
 
 .marquee-track {
   display: inline-flex;
-  animation: marquee-scroll 22s linear infinite;
+  animation: marquee-scroll 42s linear infinite;
 }
 
 .marquee-item {
