@@ -112,6 +112,7 @@ var TSVConsent = (function () {
       ".timeline-entry",
       ".logo-slot",
       ".sponsor-card",
+      ".training-cta",
     ].join(",");
     var els = document.querySelectorAll(selector);
     if (!els.length) return;
