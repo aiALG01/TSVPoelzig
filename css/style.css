@@ -1257,7 +1257,8 @@ a.sponsor-card:hover {
 }
 
 .form-field.has-error input,
-.form-field.has-error textarea {
+.form-field.has-error textarea,
+.form-field.has-error select {
   border-color: var(--color-danger);
 }
 
@@ -1265,11 +1266,41 @@ a.sponsor-card:hover {
   display: block;
 }
 
+.form-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  cursor: pointer;
+}
+
+.form-consent input {
+  margin-top: 3px;
+  accent-color: var(--color-pulse);
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+
+/* Honeypot: außerhalb des Viewports statt display:none/visibility:hidden,
+   weil einfache Bots bekannte "hidden"-Techniken gezielt überspringen, ein
+   abseits positioniertes Feld aber trotzdem ausfüllen. */
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .form-status {
   font-size: var(--text-sm);
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-card);
   margin-top: var(--space-4);
+  border-left: 3px solid var(--color-pulse);
+  background: var(--color-pulse-tint);
   display: none;
 }
 

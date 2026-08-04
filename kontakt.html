@@ -77,26 +77,67 @@
       </div>
       <div>
         <h2>Nachricht senden</h2>
-        <p class="placeholder-note">Nachrichten gehen zunächst an Marc Schulze (1. Vorsitzender). Technisch läuft das über Netlify Forms, sobald die Seite dort deployed ist, siehe README.</p>
-        <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="danke.html">
+        <p class="placeholder-note">Nachrichten gehen zunächst an Marc Schulze (1. Vorsitzender). Sobald feststeht, wer welche Anfragen übernimmt, lässt sich das Formular pro Bereich an unterschiedliche Adressen weiterleiten, siehe README.</p>
+
+        <!-- Kontaktformular: Netlify Forms für den Versand, dazu eine kleine Progressive-
+             Enhancement-Schicht in js/main.js (Inline-Validierung, AJAX-Versand ohne
+             Seitenwechsel). Ohne JavaScript sendet das Formular ganz normal per POST und
+             landet über action="danke.html" trotzdem am Ziel. -->
+        <form class="contact-form" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="_gegenstelle" data-contact-form action="danke.html" novalidate>
           <input type="hidden" name="form-name" value="kontakt">
-          <p class="visually-hidden">
-            <label>Nicht ausfüllen: <input name="bot-field"></label>
-          </p>
+
+          <!-- Honeypot: außerhalb des Bildschirms positioniert statt display:none, weil
+               einfache Bots bekannte "hidden"-Techniken gezielt überspringen, ein
+               abseits positioniertes Feld aber trotzdem ausfüllen. -->
+          <div class="form-honeypot" aria-hidden="true">
+            <label for="field-hp">Bitte leer lassen</label>
+            <input type="text" id="field-hp" name="_gegenstelle" tabindex="-1" autocomplete="off">
+          </div>
+
           <div class="form-field">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+            <p class="error" aria-live="polite"></p>
           </div>
           <div class="form-field">
             <label for="email">E-Mail</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+            <p class="error" aria-live="polite"></p>
+          </div>
+          <div class="form-field">
+            <label for="bereich">Worum geht es?</label>
+            <select id="bereich" name="bereich">
+              <option value="allgemein">Allgemein / Verein</option>
+              <option value="fussball">Fußball</option>
+              <option value="volleyball">Volleyball</option>
+              <option value="gymnastik">Gymnastik</option>
+              <option value="tanzen">Tanzen</option>
+              <option value="mitgliedschaft">Mitglied werden</option>
+              <option value="sponsoring">Sponsoring</option>
+              <option value="sonstiges">Etwas anderes</option>
+            </select>
+            <p class="error" aria-live="polite"></p>
           </div>
           <div class="form-field">
             <label for="nachricht">Nachricht</label>
             <textarea id="nachricht" name="nachricht" rows="5" required></textarea>
+            <p class="error" aria-live="polite"></p>
           </div>
+          <div class="form-field">
+            <label class="form-consent">
+              <input type="checkbox" name="consent" required>
+              <span>Ich bin einverstanden, dass meine Angaben zur Beantwortung meiner Anfrage gespeichert werden. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</span>
+            </label>
+            <p class="error" aria-live="polite"></p>
+          </div>
+
           <button class="btn btn-primary" type="submit">Absenden</button>
         </form>
+
+        <div class="form-status" data-form-status tabindex="-1" role="status">
+          <strong>Danke für deine Nachricht!</strong><br>
+          Wir melden uns so schnell wie möglich zurück.
+        </div>
       </div>
     </section>
   </main>
