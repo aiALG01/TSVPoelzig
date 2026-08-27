@@ -129,9 +129,6 @@ Beides kann später ergänzt werden, ohne `kontakt.html` zu ändern.
 
 ## Vor dem Go-Live noch offen
 
-- **Impressum und Datenschutzerklärung**: enthalten absichtlich Platzhalter
-  (`[Platzhalter: …]`), keine erfundenen Angaben. Beide Seiten sind mit einem
-  roten Warnhinweis markiert, bis sie vollständig sind.
 - **Fotos**: alle Bildflächen sind bewusst Platzhalter (Streifenmuster mit
   Beschriftung), kein Stock- oder KI-Material. Echte Fotos einfach über
   `/admin` hochladen (Neuigkeiten) oder für feste Seiten direkt in den
