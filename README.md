@@ -96,8 +96,8 @@ Netlify-Dashboard, damit Nachrichten auch ankommen:
 
 1. Nach dem ersten Deploy: Site settings → Forms → Form notifications →
    „Add notification“ → „Email notification“.
-2. Als Empfänger vorerst `an.marc@web.de` (Marc Schulze, 1. Vorsitzender)
-   eintragen. Weitere Empfänger lassen sich später ergänzen.
+2. Als Empfänger `tsv-1861-poelzig@gmx.de` eintragen. Weitere Empfänger
+   lassen sich später ergänzen.
 
 Ohne diesen Schritt werden Formular-Einsendungen zwar bei Netlify
 gespeichert, aber nicht per E-Mail zugestellt.
