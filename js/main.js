@@ -136,3 +136,119 @@ var TSVConsent = (function () {
     });
   });
 })();
+
+// Kontaktformular: Inline-Validierung + Versand per fetch, ohne Seitenwechsel.
+// Läuft nur, wenn JavaScript verfügbar ist; ohne JS greift die normale
+// Netlify-Forms-Einsendung über das action-Attribut des Formulars.
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    var form = document.querySelector("[data-contact-form]");
+    var statusBox = document.querySelector("[data-form-status]");
+    if (!form) return;
+
+    var honeypot = form.querySelector('input[name="_gegenstelle"]');
+
+    var validators = {
+      name: function (value) {
+        return value.trim().length >= 2 || "Bitte gib deinen Namen an.";
+      },
+      email: function (value) {
+        return (
+          /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim()) ||
+          "Bitte gib eine gültige E-Mail-Adresse an."
+        );
+      },
+      nachricht: function (value) {
+        return (
+          value.trim().length >= 10 ||
+          "Bitte schreib uns kurz, worum es geht."
+        );
+      },
+      consent: function (_value, field) {
+        return field.checked || "Bitte bestätige die Datenschutzhinweise.";
+      },
+    };
+
+    var validateField = function (field) {
+      var check = validators[field.name];
+      if (!check) return true;
+
+      var result = check(field.value, field);
+      var wrapper = field.closest(".form-field");
+      var errorEl = wrapper && wrapper.querySelector(".error");
+
+      if (result === true) {
+        if (wrapper) wrapper.classList.remove("has-error");
+        if (errorEl) errorEl.textContent = "";
+        field.removeAttribute("aria-invalid");
+        return true;
+      }
+
+      if (wrapper) wrapper.classList.add("has-error");
+      if (errorEl) errorEl.textContent = result;
+      field.setAttribute("aria-invalid", "true");
+      return false;
+    };
+
+    form.querySelectorAll("input, select, textarea").forEach(function (field) {
+      field.addEventListener("blur", function () {
+        validateField(field);
+      });
+    });
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      var fields = Array.prototype.slice.call(
+        form.querySelectorAll("input, select, textarea")
+      );
+      var firstInvalid = null;
+
+      fields.forEach(function (field) {
+        if (!validateField(field) && !firstInvalid) firstInvalid = field;
+      });
+
+      if (firstInvalid) {
+        firstInvalid.focus();
+        return;
+      }
+
+      // Honeypot ausgefüllt: still abbrechen, kein Feedback für Bots.
+      if (honeypot && honeypot.value) return;
+
+      var submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
+
+      var formData = new FormData(form);
+      if (!formData.has("form-name")) {
+        formData.append("form-name", "kontakt");
+      }
+
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      })
+        .then(function (response) {
+          if (response.ok) {
+            form.hidden = true;
+            if (statusBox) {
+              statusBox.classList.add("visible");
+              statusBox.focus();
+            } else {
+              alert("Danke! Deine Nachricht wurde gesendet.");
+            }
+          } else {
+            alert("Fehler beim Senden. Bitte versuche es später erneut.");
+          }
+        })
+        .catch(function (error) {
+          console.error("Netzwerkfehler:", error);
+          alert("Verbindungsfehler. Bitte versuche es später erneut.");
+        })
+        .finally(function () {
+          if (submitBtn) submitBtn.disabled = false;
+        });
+    });
+  });
+})();

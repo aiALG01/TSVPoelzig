@@ -96,17 +96,39 @@ Netlify-Dashboard, damit Nachrichten auch ankommen:
 
 1. Nach dem ersten Deploy: Site settings → Forms → Form notifications →
    „Add notification“ → „Email notification“.
-2. Als Empfänger vorerst `an.marc@web.de` (Marc Schulze, 1. Vorsitzender)
-   eintragen. Weitere Empfänger lassen sich später ergänzen.
+2. Als Empfänger `tsv-1861-poelzig@gmx.de` eintragen. Weitere Empfänger
+   lassen sich später ergänzen.
 
 Ohne diesen Schritt werden Formular-Einsendungen zwar bei Netlify
 gespeichert, aber nicht per E-Mail zugestellt.
 
+Zusätzlich zur Netlify-Einsendung läuft eine kleine Progressive-Enhancement-
+Schicht in `js/main.js`: Inline-Validierung pro Feld (Fehlertext statt
+Browser-Popup), ein Versand per `fetch` ohne Seitenwechsel plus Erfolgs-
+meldung, und ein Honeypot-Feld (`_gegenstelle`), das außerhalb des sichtbaren
+Bereichs statt per `display:none` versteckt ist, weil einfache Bots bekannte
+"hidden"-Techniken gezielt überspringen. Ohne JavaScript sendet das Formular
+trotzdem ganz normal per POST (`action="danke.html"`).
+
+**Bereich-Feld für spätere Weiterleitung**: Das Formular hat ein Auswahlfeld
+"Worum geht es?" (Feldname `bereich`: Allgemein/Verein, Fußball, Volleyball,
+Gymnastik, Tanzen, Mitgliedschaft, Sponsoring, Sonstiges). Aktuell gehen alle
+Einsendungen an eine E-Mail-Adresse (siehe oben). Sobald feststeht, welche
+Abteilung welche Anfragen übernimmt, lässt sich das auf zwei Wegen lösen,
+ohne das Formular selbst nochmal anzufassen:
+
+- **Einfach**: in Netlify unter Forms → Notifications weitere
+  Email-Notifications mit Bedingung auf den Feldwert von `bereich` anlegen
+  (Netlify unterstützt das über Zapier/Slack-Integrationen oder eine eigene
+  Notification-Rule, je nach Netlify-Plan).
+- **Volle Kontrolle**: eine kleine Netlify Function, die eingehende
+  Submissions liest und je nach `bereich` an unterschiedliche Adressen
+  weiterleitet (z. B. über einen Mail-Versanddienst wie Resend/Postmark).
+
+Beides kann später ergänzt werden, ohne `kontakt.html` zu ändern.
+
 ## Vor dem Go-Live noch offen
 
-- **Impressum und Datenschutzerklärung**: enthalten absichtlich Platzhalter
-  (`[Platzhalter: …]`), keine erfundenen Angaben. Beide Seiten sind mit einem
-  roten Warnhinweis markiert, bis sie vollständig sind.
 - **Fotos**: alle Bildflächen sind bewusst Platzhalter (Streifenmuster mit
   Beschriftung), kein Stock- oder KI-Material. Echte Fotos einfach über
   `/admin` hochladen (Neuigkeiten) oder für feste Seiten direkt in den
