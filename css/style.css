@@ -1211,6 +1211,88 @@ a.sponsor-card:hover {
   text-align: center;
 }
 
+.shop-cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+
+@media (max-width: 640px) {
+  .shop-cta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.shop-cta-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  border-radius: var(--radius-card);
+  background: var(--color-ink);
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.shop-cta-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.shop-cta-card h3 {
+  color: #fff;
+  margin: 0;
+}
+
+.shop-cta-card p {
+  color: #c9c5cb;
+  margin: 0;
+}
+
+.shop-cta-card .shop-cta-arrow {
+  margin-top: var(--space-3);
+  font-weight: 700;
+  color: var(--color-sun);
+}
+
+.shop-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 860px) {
+  .shop-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .shop-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+.shop-photo {
+  display: block;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.shop-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shop-photo:hover img {
+  transform: scale(1.06);
+}
+
 /* ---------------------------------------------------------------
    9. Formulare
 --------------------------------------------------------------- */
