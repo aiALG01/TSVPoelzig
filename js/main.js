@@ -115,6 +115,7 @@ var TSVConsent = (function () {
       ".training-cta",
       ".shop-cta-card",
       ".shop-photo",
+      ".shop-banner",
     ].join(",");
     var els = document.querySelectorAll(selector);
     if (!els.length) return;
