@@ -1293,6 +1293,27 @@ a.sponsor-card:hover {
   transform: scale(1.06);
 }
 
+.shop-banner {
+  display: block;
+  margin-top: var(--space-5);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: #e2e1df;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.shop-banner:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
+}
+
+.shop-banner img {
+  display: block;
+  width: 100%;
+  height: clamp(140px, 22vw, 240px);
+  object-fit: contain;
+}
+
 /* ---------------------------------------------------------------
    9. Formulare
 --------------------------------------------------------------- */
