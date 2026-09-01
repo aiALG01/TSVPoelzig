@@ -1314,6 +1314,39 @@ a.sponsor-card:hover {
   object-fit: contain;
 }
 
+.shop-photo-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--space-3) var(--space-4);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0));
+  color: #fff;
+  font-weight: 700;
+  font-size: var(--text-sm);
+}
+
+/* Abteilungsseiten: Trainingszeiten in eigenem, farblich abgesetztem Container */
+.training-info {
+  margin-top: var(--space-6);
+  padding: var(--space-6) var(--space-7);
+  background: var(--color-pulse-tint);
+  border-radius: var(--radius-card);
+}
+
+.training-info h3 {
+  margin: 0 0 var(--space-3);
+  color: var(--color-pulse-ink);
+}
+
+.training-info p {
+  margin: 0 0 4px;
+}
+
+.training-info p:last-child {
+  margin-bottom: 0;
+}
+
 /* ---------------------------------------------------------------
    9. Formulare
 --------------------------------------------------------------- */
