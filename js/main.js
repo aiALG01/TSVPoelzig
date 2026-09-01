@@ -113,6 +113,8 @@ var TSVConsent = (function () {
       ".logo-slot",
       ".sponsor-card",
       ".training-cta",
+      ".shop-cta-card",
+      ".shop-photo",
     ].join(",");
     var els = document.querySelectorAll(selector);
     if (!els.length) return;
