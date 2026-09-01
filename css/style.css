@@ -248,12 +248,12 @@ main {
 }
 
 .btn-dark {
-  background: var(--color-ink);
+  background: var(--color-pulse);
   color: #fff;
 }
 
 .btn-dark:hover {
-  background: var(--color-pulse);
+  background: var(--color-ink);
   color: #fff;
 }
 
@@ -1258,14 +1258,12 @@ a.sponsor-card:hover {
 
 .shop-gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-4);
 }
 
-@media (max-width: 860px) {
-  .shop-gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.shop-gallery + .shop-gallery {
+  margin-top: var(--space-4);
 }
 
 @media (max-width: 480px) {
