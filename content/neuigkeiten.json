@@ -12,6 +12,13 @@
       "title": "Test",
       "excerpt": "DIeses bsp",
       "date": "2026-09-22"
+    },
+    {
+      "category": "termin",
+      "title": "SPiel 2026",
+      "excerpt": "Hier ein weiterer Test",
+      "image": "/images/uploads/whatsapp-image-2026-09-04-at-07.05.44.jpeg",
+      "date": "2026-09-23"
     }
   ]
 }
