@@ -1860,10 +1860,11 @@ a.sponsor-card:hover {
 
 .ad-skyscraper {
   flex: none;
-  width: 160px;
   position: sticky;
   top: var(--nav-height);
   height: calc(100vh - var(--nav-height));
+  max-width: 320px;
+  aspect-ratio: 160 / 600;
   align-self: flex-start;
 }
 
@@ -1877,10 +1878,10 @@ a.sponsor-card:hover {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1300px) {
   .ad-skyscraper {
     display: none;
   }
