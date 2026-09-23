@@ -1862,8 +1862,7 @@ a.sponsor-card:hover {
   flex: none;
   position: sticky;
   top: var(--nav-height);
-  height: calc(100vh - var(--nav-height));
-  max-width: 320px;
+  width: 240px;
   aspect-ratio: 160 / 600;
   align-self: flex-start;
 }
