@@ -1831,19 +1831,6 @@ a.sponsor-card:hover {
 /* ---------------------------------------------------------------
    14. Shop-Werbebanner (SG Pölzig-Heuckewalde)
 --------------------------------------------------------------- */
-.ad-banner-wide {
-  display: flex;
-  justify-content: center;
-  padding: var(--space-6) var(--space-4);
-}
-
-.ad-banner-wide img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--radius-card);
-}
-
 .neuigkeiten-layout {
   display: grid;
   grid-template-columns: 1fr 160px;
