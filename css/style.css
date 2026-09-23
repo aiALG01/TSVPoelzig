@@ -1831,33 +1831,49 @@ a.sponsor-card:hover {
 /* ---------------------------------------------------------------
    14. Shop-Werbebanner (SG Pölzig-Heuckewalde)
 --------------------------------------------------------------- */
-.neuigkeiten-layout {
-  display: grid;
-  grid-template-columns: 1fr 160px;
-  gap: var(--space-7);
-  align-items: start;
+.ad-banner-wide {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-6) var(--space-4);
+}
+
+.ad-banner-wide img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-card);
+}
+
+/* Skyscraper: eigener Wrapper ohne .container, damit das Banner an der
+   echten rechten Fensterkante sitzt. position:sticky bleibt beim Scrollen
+   sichtbar und stoppt automatisch am Ende von .page-shell, kurz vor dem
+   Footer, ganz ohne JavaScript. */
+.page-shell {
+  display: flex;
+  align-items: flex-start;
+}
+
+.page-shell-main {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .ad-skyscraper {
+  flex: none;
+  width: 160px;
   position: sticky;
-  top: var(--space-6);
+  top: var(--nav-height);
+  align-self: flex-start;
 }
 
 .ad-skyscraper img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: var(--radius-card);
 }
 
-@media (max-width: 860px) {
-  .neuigkeiten-layout {
-    grid-template-columns: 1fr;
-  }
-
+@media (max-width: 1100px) {
   .ad-skyscraper {
-    position: static;
-    max-width: 160px;
-    margin: 0 auto;
+    display: none;
   }
 }
