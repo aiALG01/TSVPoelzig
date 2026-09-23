@@ -33,5 +33,5 @@ collections:
                   - { label: "Termin", value: "termin" }
               - { label: "Titel", name: "title", widget: "string" }
               - { label: "Kurztext", name: "excerpt", widget: "text", required: false }
-              - { label: "Datum", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+              - { label: "Datum", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false }
               - { label: "Bild", name: "image", widget: "image", required: false, hint: "Optional, sonst erscheint ein Platzhalter." }

@@ -962,6 +962,15 @@ main {
 .news-card .thumb {
   position: relative;
   height: 160px;
+  overflow: hidden;
+}
+
+.news-card .thumb img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .news-card .body {
@@ -1017,12 +1026,8 @@ main {
 }
 
 .termin-row {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: var(--space-6);
   padding: var(--space-5) 0;
   border-bottom: 1px solid var(--color-paper-line);
-  align-items: start;
 }
 
 .termine-list .termin-row:first-child {
@@ -1031,6 +1036,10 @@ main {
 
 .termine-list .termin-row:last-child {
   border-bottom: none;
+}
+
+.termin-head {
+  margin-bottom: var(--space-4);
 }
 
 .termin-date {
@@ -1051,6 +1060,17 @@ main {
   margin: 0;
 }
 
+.termin-body {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.termin-body.no-image {
+  grid-template-columns: 1fr;
+}
+
 .termin-desc p {
   margin: 0 0 var(--space-3);
   color: var(--color-muted);
@@ -1064,17 +1084,16 @@ main {
 
 .termin-photo {
   display: block;
-  max-width: 280px;
   width: 100%;
-  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   border-radius: var(--radius-card);
-  margin-top: var(--space-3);
 }
 
 @media (max-width: 640px) {
-  .termin-row {
+  .termin-body {
     grid-template-columns: 1fr;
-    gap: var(--space-2);
+    gap: var(--space-3);
   }
 }
 

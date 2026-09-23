@@ -47,18 +47,21 @@
   }
 
   function termineRowHtml(item) {
-    var imageHtml = item.image
+    var hasImage = !!item.image;
+    var imageHtml = hasImage
       ? '<img class="termin-photo" src="' + escapeHtml(item.image) + '" alt="" loading="lazy">'
       : "";
     return (
       '<article class="termin-row">' +
-      '<div class="termin-when">' +
+      '<div class="termin-head">' +
       '<span class="termin-date">' + formatDate(item.date) + "</span>" +
       '<h3 class="termin-title">' + escapeHtml(item.title || "Ohne Titel") + "</h3>" +
       "</div>" +
+      '<div class="termin-body' + (hasImage ? "" : " no-image") + '">' +
+      imageHtml +
       '<div class="termin-desc">' +
       (item.excerpt ? "<p>" + escapeHtml(item.excerpt) + "</p>" : "") +
-      imageHtml +
+      "</div>" +
       "</div>" +
       "</article>"
     );
