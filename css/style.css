@@ -1856,6 +1856,12 @@ a.sponsor-card:hover {
 .page-shell-main {
   flex: 1 1 auto;
   min-width: 0;
+  /* Garantiert Sticky-Spielraum für .ad-skyscraper (900px hoch), auch wenn
+     noch wenige oder keine Einträge veröffentlicht sind: .page-shell ist als
+     Flex-Row immer so hoch wie sein höchstes Kind, ohne diese Mindesthöhe
+     wäre das sonst gleich hoch wie der Skyscraper und dieser könnte beim
+     Scrollen nie oben stehen bleiben. */
+  min-height: max(1200px, calc(100vh - var(--nav-height) + 200px));
 }
 
 .ad-skyscraper {
