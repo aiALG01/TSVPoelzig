@@ -1885,3 +1885,16 @@ a.sponsor-card:hover {
     display: none;
   }
 }
+
+/* Auf Seiten mit Skyscraper (Neuigkeiten, Termine) ersetzt das breite
+   Banner den Skyscraper, sobald dieser ausgeblendet wird, damit es dort
+   auch mobil immer ein Banner über dem Footer gibt. */
+.ad-banner-wide-mobile {
+  display: none;
+}
+
+@media (max-width: 1300px) {
+  .ad-banner-wide-mobile {
+    display: flex;
+  }
+}
