@@ -1851,6 +1851,10 @@ a.sponsor-card:hover {
 .page-shell {
   display: flex;
   align-items: flex-start;
+  /* Zieht den Footer direkt an den Skyscraper heran: der reguläre
+     Footer-Abstand (--space-9) bleibt für den Inhalt erhalten, aber der
+     Skyscraper ruht dank negativem margin-bottom bündig ohne Lücke. */
+  margin-bottom: calc(-1 * var(--space-9));
 }
 
 .page-shell-main {
