@@ -1,3 +1,11 @@
 {
-  "items": []
+  "items": [
+    {
+      "category": "verein",
+      "title": "Sommerfest 2027",
+      "excerpt": "Kommt vorbei !",
+      "date": "2027-06-12",
+      "image": "/images/uploads/img_4604.jpeg"
+    }
+  ]
 }
