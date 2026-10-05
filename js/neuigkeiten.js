@@ -60,6 +60,17 @@
     return "<" + tagName + ' class="' + className + '">' + parts.join(" · ") + "</" + tagName + ">";
   }
 
+  function terminMetaPillsHtml(item) {
+    var pills = "";
+    if (item.zeit) {
+      pills += '<span class="termin-meta-item"><span class="termin-meta-label">Uhrzeit</span>' + escapeHtml(item.zeit) + "</span>";
+    }
+    if (item.ort) {
+      pills += '<span class="termin-meta-item termin-meta-ort"><span class="termin-meta-label">Ort</span>' + escapeHtml(item.ort) + "</span>";
+    }
+    return pills ? '<div class="termin-meta">' + pills + "</div>" : "";
+  }
+
   function cardHtml(item) {
     var cat = item.category in CATEGORY_LABEL ? item.category : "verein";
     var photoslot = CATEGORY_PHOTOSLOT[cat];
@@ -90,7 +101,7 @@
       '<div class="termin-head">' +
       '<span class="termin-date">' + formatDate(item.date) + "</span>" +
       '<h3 class="termin-title">' + escapeHtml(item.title || "Ohne Titel") + "</h3>" +
-      terminInfoHtml(item, "span", "termin-meta") +
+      terminMetaPillsHtml(item) +
       "</div>" +
       '<div class="termin-body' + (hasImage ? "" : " no-image") + '">' +
       imageHtml +
