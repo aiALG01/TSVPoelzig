@@ -104,15 +104,16 @@
   function cardHtml(item) {
     var cat = item.category in CATEGORY_LABEL ? item.category : "verein";
     var photoslot = CATEGORY_PHOTOSLOT[cat];
+    var href = detailUrl(item);
     var imageHtml = item.image
       ? '<img src="' + escapeHtml(item.image) + '" alt="" loading="lazy">'
       : '<div class="photoslot ' + photoslot + '"><span class="tag">Foto folgt</span></div>';
     return (
       '<article class="news-card">' +
-      '<div class="thumb">' + imageHtml + "</div>" +
+      '<a class="thumb" href="' + href + '">' + imageHtml + "</a>" +
       '<div class="body">' +
       '<span class="news-cat ' + cat + '">' + CATEGORY_LABEL[cat] + "</span>" +
-      "<h3>" + escapeHtml(item.title || "Ohne Titel") + "</h3>" +
+      '<h3><a href="' + href + '">' + escapeHtml(item.title || "Ohne Titel") + "</a></h3>" +
       excerptHtml(item.excerpt, item) +
       terminInfoHtml(item, "span", "news-termin-info") +
       '<span class="news-date">' + formatDate(item.date) + "</span>" +
@@ -123,14 +124,15 @@
 
   function termineRowHtml(item) {
     var hasImage = !!item.image;
+    var href = detailUrl(item);
     var imageHtml = hasImage
-      ? '<img class="termin-photo" src="' + escapeHtml(item.image) + '" alt="" loading="lazy">'
+      ? '<a class="termin-photo-link" href="' + href + '"><img class="termin-photo" src="' + escapeHtml(item.image) + '" alt="" loading="lazy"></a>'
       : "";
     return (
       '<article class="termin-row">' +
       '<div class="termin-head">' +
       '<span class="termin-date">' + formatDate(item.termin_datum || item.date) + "</span>" +
-      '<h3 class="termin-title">' + escapeHtml(item.title || "Ohne Titel") + "</h3>" +
+      '<h3 class="termin-title"><a href="' + href + '">' + escapeHtml(item.title || "Ohne Titel") + "</a></h3>" +
       terminMetaPillsHtml(item) +
       "</div>" +
       '<div class="termin-body' + (hasImage ? "" : " no-image") + '">' +
@@ -218,8 +220,10 @@
       "<h1>" + escapeHtml(item.title || "Ohne Titel") + "</h1>" +
       '<div class="news-detail-meta"><span class="news-date">' + formatDate(item.termin_datum || item.date) + "</span></div>" +
       terminMetaPillsHtml(item) +
+      '<div class="news-detail-layout">' +
       imageHtml +
-      '<div class="news-detail-body">' + formatBodyHtml(item.excerpt) + "</div>";
+      '<div class="news-detail-body">' + formatBodyHtml(item.excerpt) + "</div>" +
+      "</div>";
   }
 
   document.addEventListener("DOMContentLoaded", function () {
