@@ -35,3 +35,6 @@ collections:
               - { label: "Kurztext", name: "excerpt", widget: "text", required: false }
               - { label: "Datum", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false }
               - { label: "Bild", name: "image", widget: "image", required: false, hint: "Optional, sonst erscheint ein Platzhalter." }
+              - { label: "Uhrzeit (Termin)", name: "zeit", widget: "string", required: false, hint: "Optional, z. B. 15:00 Uhr. Zusammen mit dem Ort ausgefüllt, erscheint der Beitrag automatisch auch auf der Termine-Seite." }
+              - { label: "Ort (Termin)", name: "ort", widget: "string", required: false, hint: "Optional, z. B. Sportplatz Pölzig." }
+              - { label: "Erstellt am", name: "created", widget: "hidden", default: "{{now}}" }

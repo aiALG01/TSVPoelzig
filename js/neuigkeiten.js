@@ -14,6 +14,8 @@
     termin: "ps-termin",
   };
 
+  var EXCERPT_LIMIT = 180;
+
   function formatDate(iso) {
     if (!iso) return "";
     var d = new Date(iso);
@@ -25,6 +27,37 @@
     var div = document.createElement("div");
     div.textContent = str == null ? "" : String(str);
     return div.innerHTML;
+  }
+
+  function truncateAtWord(text, limit) {
+    if (text.length <= limit) return text;
+    var cut = text.slice(0, limit);
+    var lastSpace = cut.lastIndexOf(" ");
+    if (lastSpace > 0) cut = cut.slice(0, lastSpace);
+    return cut + "…";
+  }
+
+  function excerptHtml(excerpt) {
+    if (!excerpt) return "";
+    if (excerpt.length <= EXCERPT_LIMIT) {
+      return "<p>" + escapeHtml(excerpt) + "</p>";
+    }
+    var short = truncateAtWord(excerpt, EXCERPT_LIMIT);
+    return (
+      '<p class="news-excerpt">' +
+      '<span class="excerpt-short">' + escapeHtml(short) + "</span>" +
+      '<span class="excerpt-full" hidden>' + escapeHtml(excerpt) + "</span>" +
+      ' <button type="button" class="news-more-toggle" data-news-more>Weiterlesen</button>' +
+      "</p>"
+    );
+  }
+
+  function terminInfoHtml(item, tagName, className) {
+    var parts = [];
+    if (item.zeit) parts.push(escapeHtml(item.zeit));
+    if (item.ort) parts.push(escapeHtml(item.ort));
+    if (parts.length === 0) return "";
+    return "<" + tagName + ' class="' + className + '">' + parts.join(" · ") + "</" + tagName + ">";
   }
 
   function cardHtml(item) {
@@ -39,7 +72,8 @@
       '<div class="body">' +
       '<span class="news-cat ' + cat + '">' + CATEGORY_LABEL[cat] + "</span>" +
       "<h3>" + escapeHtml(item.title || "Ohne Titel") + "</h3>" +
-      (item.excerpt ? "<p>" + escapeHtml(item.excerpt) + "</p>" : "") +
+      excerptHtml(item.excerpt) +
+      terminInfoHtml(item, "span", "news-termin-info") +
       '<span class="news-date">' + formatDate(item.date) + "</span>" +
       "</div>" +
       "</article>"
@@ -56,6 +90,7 @@
       '<div class="termin-head">' +
       '<span class="termin-date">' + formatDate(item.date) + "</span>" +
       '<h3 class="termin-title">' + escapeHtml(item.title || "Ohne Titel") + "</h3>" +
+      terminInfoHtml(item, "span", "termin-meta") +
       "</div>" +
       '<div class="termin-body' + (hasImage ? "" : " no-image") + '">' +
       imageHtml +
@@ -71,7 +106,12 @@
     opts = opts || {};
     var filtered = items;
     if (opts.category) {
-      filtered = filtered.filter(function (i) { return i.category === opts.category; });
+      // Neben der passenden Kategorie zählt auch jeder Beitrag mit
+      // ausgefülltem Termin-Feld (Zeit/Ort) als Termin, unabhängig von
+      // seiner eigentlichen Kategorie (z. B. ein Spielbericht mit Anstoßzeit).
+      filtered = filtered.filter(function (i) {
+        return i.category === opts.category || !!(i.zeit || i.ort);
+      });
     }
     if (opts.excludeCategory) {
       filtered = filtered.filter(function (i) { return i.category !== opts.excludeCategory; });
@@ -99,6 +139,19 @@
       "</div>"
     );
   }
+
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest && e.target.closest("[data-news-more]");
+    if (!btn) return;
+    var wrap = btn.closest(".news-excerpt");
+    if (!wrap) return;
+    var short = wrap.querySelector(".excerpt-short");
+    var full = wrap.querySelector(".excerpt-full");
+    var isExpanded = !full.hidden;
+    full.hidden = isExpanded;
+    short.hidden = !isExpanded;
+    btn.textContent = isExpanded ? "Weiterlesen" : "Weniger anzeigen";
+  });
 
   document.addEventListener("DOMContentLoaded", function () {
     var containers = document.querySelectorAll("[data-news-list]");
