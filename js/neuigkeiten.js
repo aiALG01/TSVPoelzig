@@ -99,7 +99,7 @@
     return (
       '<article class="termin-row">' +
       '<div class="termin-head">' +
-      '<span class="termin-date">' + formatDate(item.date) + "</span>" +
+      '<span class="termin-date">' + formatDate(item.termin_datum || item.date) + "</span>" +
       '<h3 class="termin-title">' + escapeHtml(item.title || "Ohne Titel") + "</h3>" +
       terminMetaPillsHtml(item) +
       "</div>" +
@@ -127,8 +127,15 @@
     if (opts.excludeCategory) {
       filtered = filtered.filter(function (i) { return i.category !== opts.excludeCategory; });
     }
+    // Auf der Termine-Seite (layout "rows") zählt für die Reihenfolge das
+    // tatsächliche Veranstaltungsdatum (termin_datum), falls gesetzt –
+    // sonst würde ein nachträglich veröffentlichter Spielbericht an seinem
+    // Veröffentlichungsdatum einsortiert statt am Datum der Veranstaltung.
+    var useTerminDatum = opts.layout === "rows";
     var sorted = filtered.slice().sort(function (a, b) {
-      var diff = new Date(a.date || 0) - new Date(b.date || 0);
+      var da = useTerminDatum ? (a.termin_datum || a.date) : a.date;
+      var db = useTerminDatum ? (b.termin_datum || b.date) : b.date;
+      var diff = new Date(da || 0) - new Date(db || 0);
       return opts.sort === "asc" ? diff : -diff;
     });
     if (opts.limit) sorted = sorted.slice(0, opts.limit);
