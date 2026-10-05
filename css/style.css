@@ -966,6 +966,7 @@ main {
 }
 
 .news-card .thumb {
+  display: block;
   position: relative;
   min-height: 160px;
   background: var(--color-paper-line);
@@ -975,6 +976,17 @@ main {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.news-card h3 a,
+.termin-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.news-card h3 a:hover,
+.termin-title a:hover {
+  text-decoration: underline;
 }
 
 .news-card .body {
@@ -1048,7 +1060,7 @@ main {
 }
 
 .news-detail {
-  max-width: 68ch;
+  max-width: 900px;
 }
 
 .news-detail-back {
@@ -1072,12 +1084,31 @@ main {
   margin-bottom: var(--space-5);
 }
 
+/* Bild und Text nebeneinander, wenn neben dem (ggf. hochformatigen)
+   Bild noch Platz ist – sonst (breites/querformatiges Bild) rutscht der
+   Text per flex-wrap automatisch darunter, ganz ohne JS-Erkennung des
+   Seitenverhältnisses. Die Höhe ist gedeckelt, damit das Bild direkt
+   beim Öffnen der Seite immer vollständig sichtbar ist, ohne Scrollen -
+   und einheitlich wirkt, weil die meisten Fotos dieselbe Höhe erreichen. */
+.news-detail-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-6);
+}
+
 .news-detail-image {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
+  max-height: max(200px, min(420px, calc(100vh - 380px)));
   border-radius: var(--radius-card);
-  margin-bottom: var(--space-5);
+}
+
+.news-detail-body {
+  flex: 1 1 280px;
+  min-width: 0;
 }
 
 .news-detail-body p {
@@ -1185,6 +1216,10 @@ main {
 
 .termin-desc p:last-child {
   margin-bottom: 0;
+}
+
+.termin-photo-link {
+  display: block;
 }
 
 .termin-photo {
