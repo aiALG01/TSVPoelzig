@@ -12,7 +12,7 @@ public_folder: "/images/uploads"
 collections:
   - name: "neuigkeiten"
     label: "Neuigkeiten"
-    description: "Vereins-Meldungen, Spielberichte und Termine für die Startseite und die Neuigkeiten-Seite."
+    description: "Vereins-Meldungen, Spielberichte und Termine für die Startseite und die Neuigkeiten-Seite. Jeder Beitrag ist unten in der Liste ein eigener, aufklappbarer Eintrag – zum Bearbeiten oder Kategorie ändern einfach anklicken."
     files:
       - file: "content/neuigkeiten.json"
         label: "Neuigkeiten-Liste"
@@ -22,19 +22,21 @@ collections:
             name: "items"
             widget: "list"
             label_singular: "Beitrag"
-            summary: "{{title}} ({{category}}, {{date}})"
+            summary: "{{title}} · {{category}} · {{date}}"
             fields:
               - label: "Kategorie"
                 name: "category"
                 widget: "select"
+                hint: "Lässt sich jederzeit nachträglich ändern."
                 options:
                   - { label: "Verein", value: "verein" }
                   - { label: "Spielbericht", value: "spielbericht" }
                   - { label: "Termin", value: "termin" }
               - { label: "Titel", name: "title", widget: "string" }
-              - { label: "Kurztext", name: "excerpt", widget: "text", required: false }
-              - { label: "Datum", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false }
+              - { label: "Datum", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false, hint: "Bestimmt die Reihenfolge auf der Neuigkeiten-Seite. Findet die Veranstaltung an einem anderen Tag statt, zusätzlich unten „Termin – Datum“ ausfüllen." }
+              - { label: "Kurztext", name: "excerpt", widget: "text", required: false, hint: "Lange Texte werden auf der Seite automatisch gekürzt, mit einem „Weiterlesen“-Link." }
               - { label: "Bild", name: "image", widget: "image", required: false, hint: "Optional, sonst erscheint ein Platzhalter." }
-              - { label: "Uhrzeit (Termin)", name: "zeit", widget: "string", required: false, hint: "Optional, z. B. 15:00 Uhr. Zusammen mit dem Ort ausgefüllt, erscheint der Beitrag automatisch auch auf der Termine-Seite." }
-              - { label: "Ort (Termin)", name: "ort", widget: "string", required: false, hint: "Optional, z. B. Sportplatz Pölzig." }
+              - { label: "Termin – Datum", name: "termin_datum", widget: "datetime", format: "YYYY-MM-DD", time_format: false, required: false, hint: "Nur bei Veranstaltungen ausfüllen, und nur wenn diese an einem anderen Tag als beim Datum oben stattfinden (z. B. bei einem Spielbericht, der erst nachträglich veröffentlicht wird). Erscheint dann auf der Termine-Seite statt des Datums oben." }
+              - { label: "Termin – Uhrzeit", name: "zeit", widget: "string", required: false, hint: "Nur bei Veranstaltungen ausfüllen, z. B. 15:00 Uhr. Zusammen mit dem Ort ausgefüllt, erscheint der Beitrag automatisch auch auf der Termine-Seite." }
+              - { label: "Termin – Ort", name: "ort", widget: "string", required: false, hint: "Nur bei Veranstaltungen ausfüllen, z. B. Sportplatz Pölzig." }
               - { label: "Erstellt am", name: "created", widget: "hidden", default: "{{now}}" }
