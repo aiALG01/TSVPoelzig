@@ -37,17 +37,47 @@
     return cut + "…";
   }
 
-  function excerptHtml(excerpt) {
+  function slugifyText(str) {
+    return (str || "")
+      .toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "beitrag";
+  }
+
+  function itemSlug(item) {
+    var datePart = (item.date || "").slice(0, 10);
+    return (datePart ? datePart + "-" : "") + slugifyText(item.title);
+  }
+
+  function detailUrl(item) {
+    return "neuigkeit.html?s=" + encodeURIComponent(itemSlug(item));
+  }
+
+  // Erhält Absätze/Zeilenumbrüche aus dem Kurztext-Feld (so, wie im
+  // CMS eingegeben), statt sie wie in einem einzelnen <p> zu einer Zeile
+  // zusammenzufalten.
+  function formatBodyHtml(text) {
+    if (!text) return "";
+    return text
+      .split(/\n\s*\n/)
+      .map(function (para) { return para.trim(); })
+      .filter(function (para) { return para.length > 0; })
+      .map(function (para) {
+        return "<p>" + escapeHtml(para).replace(/\n/g, "<br>") + "</p>";
+      })
+      .join("");
+  }
+
+  function excerptHtml(excerpt, item) {
     if (!excerpt) return "";
     if (excerpt.length <= EXCERPT_LIMIT) {
       return "<p>" + escapeHtml(excerpt) + "</p>";
     }
     var short = truncateAtWord(excerpt, EXCERPT_LIMIT);
     return (
-      '<p class="news-excerpt">' +
-      '<span class="excerpt-short">' + escapeHtml(short) + "</span>" +
-      '<span class="excerpt-full" hidden>' + escapeHtml(excerpt) + "</span>" +
-      ' <button type="button" class="news-more-toggle" data-news-more>Weiterlesen</button>' +
+      "<p>" + escapeHtml(short) +
+      ' <a class="news-more-toggle" href="' + detailUrl(item) + '">Weiterlesen</a>' +
       "</p>"
     );
   }
@@ -83,7 +113,7 @@
       '<div class="body">' +
       '<span class="news-cat ' + cat + '">' + CATEGORY_LABEL[cat] + "</span>" +
       "<h3>" + escapeHtml(item.title || "Ohne Titel") + "</h3>" +
-      excerptHtml(item.excerpt) +
+      excerptHtml(item.excerpt, item) +
       terminInfoHtml(item, "span", "news-termin-info") +
       '<span class="news-date">' + formatDate(item.date) + "</span>" +
       "</div>" +
@@ -106,7 +136,7 @@
       '<div class="termin-body' + (hasImage ? "" : " no-image") + '">' +
       imageHtml +
       '<div class="termin-desc">' +
-      excerptHtml(item.excerpt) +
+      excerptHtml(item.excerpt, item) +
       "</div>" +
       "</div>" +
       "</article>"
@@ -158,22 +188,44 @@
     );
   }
 
-  document.addEventListener("click", function (e) {
-    var btn = e.target.closest && e.target.closest("[data-news-more]");
-    if (!btn) return;
-    var wrap = btn.closest(".news-excerpt");
-    if (!wrap) return;
-    var short = wrap.querySelector(".excerpt-short");
-    var full = wrap.querySelector(".excerpt-full");
-    var isExpanded = !full.hidden;
-    full.hidden = isExpanded;
-    short.hidden = !isExpanded;
-    btn.textContent = isExpanded ? "Weiterlesen" : "Weniger anzeigen";
-  });
+  function detailNotFoundHtml() {
+    return (
+      "<p><strong>Dieser Beitrag wurde nicht gefunden.</strong><br>" +
+      "Er wurde eventuell inzwischen bearbeitet oder entfernt.</p>" +
+      '<p><a class="btn btn-ghost" href="neuigkeiten.html">Zurück zu Neuigkeiten</a></p>'
+    );
+  }
+
+  function renderDetail(container, items) {
+    var params = new URLSearchParams(window.location.search);
+    var slug = params.get("s");
+    var item = items.filter(function (i) { return itemSlug(i) === slug; })[0];
+    if (!item) {
+      container.innerHTML = detailNotFoundHtml();
+      return;
+    }
+
+    document.title = (item.title || "Neuigkeit") + " – TSV 1861 Pölzig";
+
+    var cat = item.category in CATEGORY_LABEL ? item.category : "verein";
+    var imageHtml = item.image
+      ? '<img class="news-detail-image" src="' + escapeHtml(item.image) + '" alt="" loading="lazy">'
+      : "";
+
+    container.innerHTML =
+      '<a class="btn btn-ghost news-detail-back" href="neuigkeiten.html">← Zurück zu Neuigkeiten</a>' +
+      '<span class="news-cat ' + cat + '">' + CATEGORY_LABEL[cat] + "</span>" +
+      "<h1>" + escapeHtml(item.title || "Ohne Titel") + "</h1>" +
+      '<div class="news-detail-meta"><span class="news-date">' + formatDate(item.termin_datum || item.date) + "</span></div>" +
+      terminMetaPillsHtml(item) +
+      imageHtml +
+      '<div class="news-detail-body">' + formatBodyHtml(item.excerpt) + "</div>";
+  }
 
   document.addEventListener("DOMContentLoaded", function () {
     var containers = document.querySelectorAll("[data-news-list]");
-    if (containers.length === 0) return;
+    var detailContainer = document.querySelector("[data-news-detail]");
+    if (containers.length === 0 && !detailContainer) return;
 
     fetch("content/neuigkeiten.json")
       .then(function (res) {
@@ -192,11 +244,13 @@
             sort: container.getAttribute("data-news-sort") || "desc",
           });
         });
+        if (detailContainer) renderDetail(detailContainer, items);
       })
       .catch(function () {
         containers.forEach(function (container) {
           container.outerHTML = emptyStateHtml();
         });
+        if (detailContainer) detailContainer.innerHTML = detailNotFoundHtml();
       });
   });
 })();
