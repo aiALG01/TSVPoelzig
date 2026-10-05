@@ -220,10 +220,8 @@
       "<h1>" + escapeHtml(item.title || "Ohne Titel") + "</h1>" +
       '<div class="news-detail-meta"><span class="news-date">' + formatDate(item.termin_datum || item.date) + "</span></div>" +
       terminMetaPillsHtml(item) +
-      '<div class="news-detail-layout">' +
       imageHtml +
-      '<div class="news-detail-body">' + formatBodyHtml(item.excerpt) + "</div>" +
-      "</div>";
+      '<div class="news-detail-body">' + formatBodyHtml(item.excerpt) + "</div>";
   }
 
   document.addEventListener("DOMContentLoaded", function () {

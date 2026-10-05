@@ -1060,7 +1060,13 @@ main {
 }
 
 .news-detail {
-  max-width: 900px;
+  max-width: 1000px;
+}
+
+.news-detail::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 .news-detail-back {
@@ -1084,31 +1090,24 @@ main {
   margin-bottom: var(--space-5);
 }
 
-/* Bild und Text nebeneinander, wenn neben dem (ggf. hochformatigen)
-   Bild noch Platz ist – sonst (breites/querformatiges Bild) rutscht der
-   Text per flex-wrap automatisch darunter, ganz ohne JS-Erkennung des
-   Seitenverhältnisses. Die Höhe ist gedeckelt, damit das Bild direkt
-   beim Öffnen der Seite immer vollständig sichtbar ist, ohne Scrollen -
-   und einheitlich wirkt, weil die meisten Fotos dieselbe Höhe erreichen. */
-.news-detail-layout {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: var(--space-6);
-}
-
+/* Klassisches Bild-Umfluss-Layout: das Bild schwimmt links, der Text
+   beginnt direkt daneben und nutzt dort die volle verfügbare Breite neben
+   dem (ggf. hochformatigen) Bild. Sobald der Textfluss das untere Ende
+   des Bildes erreicht, geht er automatisch über die volle Breite weiter –
+   ganz ohne JS-Erkennung des Seitenverhältnisses, allein durch den
+   normalen CSS-Textfluss um ein float-Element. max-width als Anteil der
+   Breite verhindert, dass ein breites/querformatiges Bild zu dominant
+   wirkt; die Höhe ist zusätzlich gedeckelt, damit das Bild direkt beim
+   Öffnen der Seite immer vollständig sichtbar ist, ohne Scrollen. */
 .news-detail-image {
   display: block;
+  float: left;
+  margin: 0 var(--space-6) var(--space-5) 0;
   width: auto;
-  max-width: 100%;
+  max-width: 45%;
   height: auto;
   max-height: max(200px, min(420px, calc(100vh - 380px)));
   border-radius: var(--radius-card);
-}
-
-.news-detail-body {
-  flex: 1 1 280px;
-  min-width: 0;
 }
 
 .news-detail-body p {
@@ -1117,6 +1116,14 @@ main {
 
 .news-detail-body p:last-child {
   margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .news-detail-image {
+    float: none;
+    max-width: 100%;
+    margin: 0 0 var(--space-5);
+  }
 }
 
 .termine-list {
