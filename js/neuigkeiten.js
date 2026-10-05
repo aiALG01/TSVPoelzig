@@ -106,7 +106,7 @@
       '<div class="termin-body' + (hasImage ? "" : " no-image") + '">' +
       imageHtml +
       '<div class="termin-desc">' +
-      (item.excerpt ? "<p>" + escapeHtml(item.excerpt) + "</p>" : "") +
+      excerptHtml(item.excerpt) +
       "</div>" +
       "</div>" +
       "</article>"
