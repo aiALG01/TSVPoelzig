@@ -1677,6 +1677,22 @@ a.sponsor-card:hover {
   color: #9a95a0;
 }
 
+.footer-credit {
+  color: #cfcbd0;
+}
+
+.footer-credit a {
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration-color: var(--color-pulse);
+  text-underline-offset: 3px;
+}
+
+.footer-credit a:hover {
+  color: var(--color-pulse);
+}
+
 @media (max-width: 860px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
