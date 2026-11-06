@@ -208,7 +208,7 @@
       </div>
       <div class="footer-legal">
         <span>© <span data-current-year></span> TSV 1861 Pölzig e. V.</span>
-        <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+        <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · Webdesign &amp; Umsetzung: <a href="https://al-wing.de" target="_blank" rel="noopener">AL-WING</a></span>
       </div>
     </div>
   </footer>
@@ -225,15 +225,24 @@
   <script src="js/neuigkeiten.js"></script>
 
   <!-- Nur für Einladungs-/Bestätigungslinks aus der /admin-Verwaltung: leitet
-       Vorstandsmitglieder nach Klick auf den E-Mail-Link direkt zum Login weiter. -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+       Vorstandsmitglieder nach Klick auf den E-Mail-Link direkt zum Login weiter.
+       Das Netlify-Identity-Skript wird nur nachgeladen, wenn die Adresse einen
+       solchen Token enthält. Normale Besucher stellen keine Verbindung her. -->
   <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", function (user) {});
-      if (window.location.hash && window.location.hash.indexOf("confirmation_token") > -1) {
-        window.location.href = "admin/" + window.location.hash;
-      }
-    }
+    (function () {
+      var hash = window.location.hash || "";
+      if (!/(invite|confirmation|recovery|email_change)_token=/.test(hash)) return;
+      var s = document.createElement("script");
+      s.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+      s.onload = function () {
+        if (!window.netlifyIdentity) return;
+        window.netlifyIdentity.on("init", function (user) {});
+        if (hash.indexOf("confirmation_token") > -1) {
+          window.location.href = "admin/" + hash;
+        }
+      };
+      document.head.appendChild(s);
+    })();
   </script>
 </body>
 </html>
