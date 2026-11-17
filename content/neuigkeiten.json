@@ -1,3 +1,12 @@
 {
-  "items": []
+  "items": [
+    {
+      "created": "{{now}}",
+      "category": "spielbericht",
+      "title": "Heimspiel vs. Ehrenhain II",
+      "date": "2026-11-17",
+      "excerpt": "Offensiv unterhaltsam, defensiv ausbaufähig: 1:8 gegen Ehrenhain\n\nEs gibt Samstage, an denen läuft einfach alles. Leider war dieser Samstag aus unserer Sicht eher das Gegenteil. Gegen den SV Ehrenhain setzte es eine deutliche 1:8-Heimniederlage.\n\nDie Gäste brauchten nicht lange, um auf Betriebstemperatur zu kommen. Nach gerade einmal zwölf Minuten stand es bereits 0:2. Ehrenhain zeigte sich eiskalt und nutzte unsere Fehler gnadenlos aus. Unsere SG hatte zwar immer wieder ordentliche Phasen im Spielaufbau, doch sobald die Gäste ins Umschaltspiel kamen, wurde es brandgefährlich. In der 37. Minute fiel schließlich das 0:3.\n\nNach der Pause ging es munter weiter, allerdings leider hauptsächlich in die falsche Richtung. Zwei weitere Treffer zum 0:5 machten die Aufgabe nicht unbedingt leichter. Doch unsere SG hatte noch ein kleines Highlight parat: Fynn Robert Wunderlich setzte sich auf der rechten Seite gegen gleich drei Gegenspieler durch und servierte den Ball für Kai Fobow, der zum 1:5 einköpfte. Wenigstens konnten wir kurz beweisen, dass auch unsere Seite der Anzeigetafel funktioniert.\n\nDie Schlussphase entwickelte sich dann endgültig zu einem Nachmittag, den man lieber schnell vergessen möchte. Ehrenhain legte noch drei Treffer nach und stellte den Endstand von 1:8 her. Unsere Defensive bekam dabei leider mehr Arbeit, als ihr lieb war.\n\nAm Ende bleibt eine verdiente, wenn auch deutlich zu hohe Lehrstunde. Mund abputzen, Fehler analysieren und beim nächsten Spiel wieder zeigen, dass wir es besser können. Denn eines ist klar: Acht Gegentore sollen vorerst eine einmalige Angelegenheit bleiben.",
+      "image": "/images/uploads/img_5254.jpeg"
+    }
+  ]
 }
