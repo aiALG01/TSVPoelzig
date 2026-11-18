@@ -27,6 +27,14 @@
       "zeit": "Samstag, 28.11.2026 14:00 Uhr",
       "ort": "Sportplatz Löbichau",
       "image": "/images/uploads/img_5265.jpeg"
+    },
+    {
+      "created": "{{now}}",
+      "category": "verein",
+      "title": "Geschenkideen für Weihnachten gesucht ?",
+      "excerpt": "Weihnachten ist eine schöne Gelegenheit, Danke zu sagen - an Freunde, Familie oder Vereinsmitglieder.\n\nEntdeckt unseren Fanshop und ihr findet eine große Auswahl an Weihnachtsartikeln.\nEgal ob Mützen, Schals oder auch Tassen, Weihnachtsbaumkugeln oder Adventskalender. \nFür jeden ist was dabei und alles im Vereinslook.\n\nSchaut vorbei und viel Spaß bei verschenken.\n\nhttps://tsv-poelzig.fan12.de/weihnachten",
+      "image": "/images/uploads/screenshot-2026-11-18-125607.png",
+      "date": "2026-11-18"
     }
   ]
 }
